@@ -63,6 +63,25 @@ func update_scene():
 	$RightButton.visible = self.position_stack[-1].right != null
 	$FrontButton.visible = self.position_stack[-1].front != null
 	$LeftButton.visible = self.position_stack[-1].left != null
+	
+	var room = self.position_stack[-1]
+	match [room.left != null, room.front != null, room.right != null]:
+		[false, false, false]:
+			$Background.texture = preload("res://Resources/Corridors/wall.png")
+		[true, false, false]:
+			$Background.texture = preload("res://Resources/Corridors/wall6.png")
+		[false, true, false]:
+			$Background.texture = preload("res://Resources/Corridors/wall2.png")
+		[false, false, true]:
+			$Background.texture = preload("res://Resources/Corridors/wall3.png")
+		[true, true, false]:
+			$Background.texture = preload("res://Resources/Corridors/wall7.png")
+		[true, false, true]:
+			$Background.texture = preload("res://Resources/Corridors/wall5.png")
+		[false, true, true]:
+			$Background.texture = preload("res://Resources/Corridors/wall4.png")
+		[true, true, true]:
+			$Background.texture = preload("res://Resources/Corridors/wall8.png")
 	self.update_minimap(self.head)
 
 # Called when the node enters the scene tree for the first time.

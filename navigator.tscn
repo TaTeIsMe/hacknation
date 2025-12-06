@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cf06keqo5si2c"]
 
 [ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
-[ext_resource type="Texture2D" uid="uid://diymwntdki2b6" path="res://Resources/tunnel-t.png" id="1_tnptb"]
 [ext_resource type="Texture2D" uid="uid://b0hmu3aljnh05" path="res://Resources/arrow_active.png" id="3_s5fnc"]
 [ext_resource type="Texture2D" uid="uid://crjx2mi28yvew" path="res://Resources/arrow_inactive.png" id="4_3oqed"]
 [ext_resource type="Texture2D" uid="uid://bugsouqfelad6" path="res://Resources/Tiles/tileSet.png" id="5_3oqed"]
+[ext_resource type="Texture2D" uid="uid://cqdwigh7imykx" path="res://Resources/Corridors/wall.png" id="5_17f0l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17f0l"]
 texture = ExtResource("5_3oqed")
@@ -23,9 +23,10 @@ sources/0 = SubResource("TileSetAtlasSource_17f0l")
 [node name="Navigator" type="Node2D"]
 script = ExtResource("1_18orr")
 
-[node name="TunnelT" type="Sprite2D" parent="."]
-position = Vector2(576, 324)
-texture = ExtResource("1_tnptb")
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 323.99994)
+scale = Vector2(1.125, 0.63281244)
+texture = ExtResource("5_17f0l")
 
 [node name="BackButton" type="TextureButton" parent="."]
 offset_left = 711.0
