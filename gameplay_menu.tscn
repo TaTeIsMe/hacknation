@@ -30,6 +30,7 @@ anchors_preset = 0
 script = ExtResource("1_mvg78")
 
 [node name="Placeholder BG" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.6313726)
 self_modulate = Color(0.23900445, 0.23900445, 0.23900445, 1)
 position = Vector2(576.99994, 323.99997)
@@ -122,5 +123,3 @@ offset_top = 221.0
 offset_right = 1015.0
 offset_bottom = 299.0
 script = ExtResource("7_2kudj")
-
-[connection signal="pressed" from="Spell List/Spell 2" to="Spell Info" method="_on_spell_pressed" binds= [NodePath(".")]]

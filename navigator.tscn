@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf06keqo5si2c"]
+[gd_scene load_steps=9 format=3 uid="uid://cf06keqo5si2c"]
 
 [ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
+[ext_resource type="Texture2D" uid="uid://buyq3l8hl7h42" path="res://Resources/Corridors/walloverlay.png" id="3_17f0l"]
 [ext_resource type="Texture2D" uid="uid://b0hmu3aljnh05" path="res://Resources/arrow_active.png" id="3_s5fnc"]
 [ext_resource type="Texture2D" uid="uid://crjx2mi28yvew" path="res://Resources/arrow_inactive.png" id="4_3oqed"]
 [ext_resource type="Texture2D" uid="uid://bugsouqfelad6" path="res://Resources/Tiles/tileSet.png" id="5_3oqed"]
@@ -12,9 +13,10 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
 5:0/0 = 0
-1:2/0 = 0
-0:3/0 = 0
 5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+6:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_fu5ud"]
 tile_size = Vector2i(64, 64)
@@ -27,6 +29,11 @@ script = ExtResource("1_18orr")
 position = Vector2(576, 323.99994)
 scale = Vector2(1.125, 0.63281244)
 texture = ExtResource("5_17f0l")
+
+[node name="Walloverlay" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.125, 0.6328125)
+texture = ExtResource("3_17f0l")
 
 [node name="BackButton" type="TextureButton" parent="."]
 offset_left = 711.0
@@ -68,7 +75,11 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
-[node name="Minimap" type="TileMapLayer" parent="."]
+[node name="MinimapBG" type="TileMapLayer" parent="."]
+position = Vector2(150, 117)
+tile_set = SubResource("TileSet_fu5ud")
+
+[node name="MinimapIcons" type="TileMapLayer" parent="."]
 position = Vector2(150, 117)
 tile_set = SubResource("TileSet_fu5ud")
 

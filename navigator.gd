@@ -1,47 +1,45 @@
 extends Node2D
 
+class RoomLoot:
+	func tile_pos() -> Vector2i:
+		return Vector2i.ZERO
+
 class Room:
-	#var back: Room = null
 	var left: Room = null
 	var right: Room = null
 	var front: Room = null
-	#var pos: Vector2i
-	#var orientation: Vector2i
+	var visited = false
 	
 	func _init(l=null,f=null,r=null):
-		#self.pos = p
-		#self.orientation = o
-		#self.back = null
-		
 		self.left = l
-		#if self.left != null:
-			#self.left.back = self
-			#var left_dir = Vector2i(-self.orientation.y, self.orientation.x)
-			#self.left.pos = self.pos + left_dir
-			#self.left.orientation = left_dir
-			
 		self.right = r
-		#if self.right != null:
-			#self.right.back = self
-			#var right_dir = Vector2i(self.orientation.y, -self.orientation.x)
-			#self.right.pos = self.pos + right_dir
-			#self.right.orientation = right_dir
-			
 		self.front = f
-		#if self.front != null:
-			#self.front.back = self
-			#self.front.pos = self.pos + self.orientation
-			#self.front.orientation = self.orientation
-	
-var head = Room.new(Room.new(), null, Room.new(Room.new(),null,Room.new()))
+		
+var head = Room.new(Room.new(), null, Room.new(Room.new(),null,Room.new(Room.new(null,Room.new()))))
 var position_stack: Array = [head]
 
-func update_minimap(room: Room, pos = Vector2i.ZERO, orientation=Vector2i.DOWN):
-	if room == self.position_stack[-1]:
-		$Minimap.set_cell(pos, 0, Vector2i(5,3))
-	else:
-		$Minimap.set_cell(pos, 0, Vector2i(0,0))
+const start_tile = Vector2i(6,3)
+const gamba_tile = Vector2i(5,3)
+const treasure_tile = Vector2i(5,2)
+const battle_tile = Vector2i(5,1)
+const wizard_tile = Vector2i(5,0)
+const visited_tile = Vector2i(0,0)
+const unvisited_tile = Vector2i(1,0)
 
+var poop = false
+
+func update_minimap(room: Room, pos = Vector2i.ZERO, orientation=Vector2i.DOWN):
+	$MinimapIcons.erase_cell(pos)
+	if room == self.position_stack[-1]:
+		$MinimapIcons.set_cell(pos, 0, wizard_tile)
+		
+	if room == head:
+		$MinimapBG.set_cell(pos, 0, start_tile)
+	elif room.visited:
+		$MinimapBG.set_cell(pos, 0, visited_tile)
+	else:
+		$MinimapBG.set_cell(pos, 0, unvisited_tile)
+		return;
 		
 	if room.left != null:
 		var left_dir = Vector2i(-orientation.y, -orientation.x)
@@ -63,6 +61,8 @@ func update_scene():
 	$RightButton.visible = self.position_stack[-1].right != null
 	$FrontButton.visible = self.position_stack[-1].front != null
 	$LeftButton.visible = self.position_stack[-1].left != null
+	
+	$Walloverlay.visible = false
 	
 	var room = self.position_stack[-1]
 	match [room.left != null, room.front != null, room.right != null]:
@@ -86,6 +86,7 @@ func update_scene():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.head.visited = true
 	self.update_scene()
 	pass # Replace with function body.
 
@@ -98,13 +99,16 @@ func _go(where: String) -> void:
 		if self.position_stack.size() > 1:
 			self.position_stack.pop_back()
 	elif where == "right":
+		self.poop = !self.poop
 		self.position_stack.push_back(self.position_stack[-1].right)
 	elif where == "front":
 		self.position_stack.push_back(self.position_stack[-1].front)
 	elif where == "left":
+		self.poop = !self.poop
 		self.position_stack.push_back(self.position_stack[-1].left)
 	else:
 		printerr("gdzie ty idziesz?? ", where)
+	self.position_stack[-1].visited = true
 	self.update_scene()
 		
 		
