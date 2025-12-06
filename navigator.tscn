@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cf06keqo5si2c"]
+[gd_scene load_steps=12 format=3 uid="uid://cf06keqo5si2c"]
 
 [ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
 [ext_resource type="Texture2D" uid="uid://b0hmu3aljnh05" path="res://Resources/arrow_active.png" id="3_s5fnc"]
+[ext_resource type="Texture2D" uid="uid://d3utydphl3qyy" path="res://Resources/decoration_1.png" id="3_xv1f3"]
 [ext_resource type="Texture2D" uid="uid://crjx2mi28yvew" path="res://Resources/arrow_inactive.png" id="4_3oqed"]
+[ext_resource type="Texture2D" uid="uid://cnsuspttsah53" path="res://Resources/decoration_2.png" id="4_j4p50"]
 [ext_resource type="Texture2D" uid="uid://bugsouqfelad6" path="res://Resources/Tiles/tileSet.png" id="5_3oqed"]
+[ext_resource type="Texture2D" uid="uid://bi4d7y0ebhxvc" path="res://Resources/decoration_3.png" id="5_6qkjq"]
 [ext_resource type="Texture2D" uid="uid://cqdwigh7imykx" path="res://Resources/Corridors/wall.png" id="5_17f0l"]
+[ext_resource type="Texture2D" uid="uid://dkvcbueh3ylsv" path="res://Resources/decoration_4.png" id="6_sm8et"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17f0l"]
 texture = ExtResource("5_3oqed")
@@ -46,16 +50,32 @@ sources/0 = SubResource("TileSetAtlasSource_17f0l")
 [node name="Navigator" type="Node2D"]
 script = ExtResource("1_18orr")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(324, 324)
-scale = Vector2(0.6328125, 0.6328125)
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(287, 287)
+scale = Vector2(0.56, 0.56)
+
+[node name="Background" type="Sprite2D" parent="Node2D"]
 texture = ExtResource("5_17f0l")
 
+[node name="Decorations" type="Node2D" parent="Node2D"]
+
+[node name="Decoration1" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("3_xv1f3")
+
+[node name="Decoration2" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("4_j4p50")
+
+[node name="Decoration3" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("5_6qkjq")
+
+[node name="Decoration4" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("6_sm8et")
+
 [node name="BackButton" type="TextureButton" parent="."]
-offset_left = 415.00003
-offset_top = 519.99994
-offset_right = 671.0
-offset_bottom = 775.99994
+offset_left = 364.06305
+offset_top = 487.99994
+offset_right = 620.06305
+offset_bottom = 743.99994
 rotation = 3.1627393
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
@@ -63,10 +83,10 @@ texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="RightButton" type="TextureButton" parent="."]
-offset_left = 552.00006
-offset_top = 251.0
-offset_right = 808.00006
-offset_bottom = 507.00003
+offset_left = 501.06308
+offset_top = 219.0
+offset_right = 757.0631
+offset_bottom = 475.00003
 rotation = 1.5723478
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
@@ -74,20 +94,20 @@ texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="FrontButton" type="TextureButton" parent="."]
-offset_left = 266.0
-offset_top = 133.0
-offset_right = 522.0
-offset_bottom = 389.0
+offset_left = 215.06302
+offset_top = 101.0
+offset_right = 471.06302
+offset_bottom = 357.0
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="LeftButton" type="TextureButton" parent="."]
-offset_left = 116.00001
-offset_top = 412.00003
-offset_right = 372.0
-offset_bottom = 668.00006
+offset_left = 65.06302
+offset_top = 380.00003
+offset_right = 321.06302
+offset_bottom = 636.00006
 rotation = -1.6261355
 scale = Vector2(0.6400622, 0.5996289)
 size_flags_horizontal = 4
@@ -95,12 +115,23 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
-[node name="MinimapBG" type="TileMapLayer" parent="."]
-position = Vector2(150, 117)
+[node name="Minimap" type="Node2D" parent="."]
+position = Vector2(65.06302, 380.00003)
+rotation = -1.6261355
+scale = Vector2(0.6400622, 0.5996289)
+
+[node name="BG" type="TileMapLayer" parent="Minimap"]
+position = Vector2(402.92877, 165.69202)
+rotation = 1.6226461
+scale = Vector2(1.6673859, 1.5626814)
+skew = 0.0072124004
 tile_set = SubResource("TileSet_fu5ud")
 
-[node name="MinimapIcons" type="TileMapLayer" parent="."]
-position = Vector2(150, 117)
+[node name="Icons" type="TileMapLayer" parent="Minimap"]
+position = Vector2(402.92877, 165.69202)
+rotation = 1.6226461
+scale = Vector2(1.6673859, 1.5626814)
+skew = 0.0072124004
 tile_set = SubResource("TileSet_fu5ud")
 
 [connection signal="pressed" from="BackButton" to="." method="_go" binds= ["back"]]
