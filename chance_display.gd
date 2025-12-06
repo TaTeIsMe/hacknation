@@ -6,7 +6,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.get_node("Chance Display").text = str(spell_accuracy + luck_value) + "%"
-	self.get_node("Chance Display").get_node("Chance Details").text = "(%s%% + [color=green]%s%%[/color])" % [spell_accuracy, luck_value]
+	self.get_node("Chance Display").get_node("Chance Details").text = "(%s%% + [color=#7dff7d]%s%%[/color])" % [spell_accuracy, luck_value]
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

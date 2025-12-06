@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://beuhhn4exqr55"]
+[gd_scene load_steps=16 format=3 uid="uid://beuhhn4exqr55"]
 
 [ext_resource type="Script" uid="uid://clssfp2ijep4u" path="res://gameplay_menu.gd" id="1_mvg78"]
 [ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="1_usc4k"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://mow5jmvpgh8t" path="res://chance_display.tscn" id="5_q0lyc"]
 [ext_resource type="Script" uid="uid://clp73suhrnwdi" path="res://spell_info.gd" id="6_ek47n"]
 [ext_resource type="Script" uid="uid://b661s4fjq7xbc" path="res://chance_display.gd" id="7_2kudj"]
+[ext_resource type="PackedScene" uid="uid://dcebgkqqeu7yx" path="res://mana_counter.tscn" id="8_n0i6d"]
+[ext_resource type="Script" uid="uid://cvo652dt3mx00" path="res://mana_counter.gd" id="9_8a7ww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_smepj"]
 shader = ExtResource("1_v0se8")
@@ -24,7 +26,7 @@ gradient = SubResource("Gradient_2v524")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
-[node name="Node2D" type="Control"]
+[node name="Menu Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_mvg78")
@@ -108,12 +110,14 @@ offset_right = 382.0
 offset_bottom = 592.0
 script = ExtResource("6_ek47n")
 
-[node name="Mana placeholder" type="TextureProgressBar" parent="."]
-layout_mode = 0
-offset_left = 940.0
-offset_top = 502.0
-offset_right = 1133.0
-offset_bottom = 635.0
+[node name="Mana counter" parent="." instance=ExtResource("8_n0i6d")]
+layout_mode = 1
+offset_left = 890.0
+offset_top = 325.0
+offset_right = 1914.0
+offset_bottom = 1349.0
+script = ExtResource("9_8a7ww")
+mana_value = 50
 
 [node name="Chance Display" parent="." instance=ExtResource("5_q0lyc")]
 layout_mode = 0
@@ -122,5 +126,3 @@ offset_top = 221.0
 offset_right = 1015.0
 offset_bottom = 299.0
 script = ExtResource("7_2kudj")
-
-[connection signal="pressed" from="Spell List/Spell 2" to="Spell Info" method="_on_spell_pressed" binds= [NodePath(".")]]

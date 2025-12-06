@@ -61,7 +61,7 @@ theme_override_fonts/bold_font = ExtResource("1_xadcv")
 theme_override_font_sizes/normal_font_size = 14
 theme_override_font_sizes/bold_font_size = 12
 bbcode_enabled = true
-text = "(20% + [color=green]60%[/color])"
+text = "(20% + [color=#7dff7d]60%[/color])"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 2
