@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://cf06keqo5si2c"]
+
+[ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
+[ext_resource type="Texture2D" uid="uid://diymwntdki2b6" path="res://Resources/tunnel-t.png" id="1_tnptb"]
+[ext_resource type="Texture2D" uid="uid://b0hmu3aljnh05" path="res://Resources/arrow_active.png" id="3_s5fnc"]
+[ext_resource type="Texture2D" uid="uid://crjx2mi28yvew" path="res://Resources/arrow_inactive.png" id="4_3oqed"]
+[ext_resource type="Texture2D" uid="uid://bugsouqfelad6" path="res://Resources/Tiles/tileSet.png" id="5_3oqed"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17f0l"]
+texture = ExtResource("5_3oqed")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+5:0/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+5:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_fu5ud"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_17f0l")
+
+[node name="Navigator" type="Node2D"]
+script = ExtResource("1_18orr")
+
+[node name="TunnelT" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("1_tnptb")
+
+[node name="BackButton" type="TextureButton" parent="."]
+offset_left = 711.0
+offset_top = 670.00006
+offset_right = 967.0
+offset_bottom = 926.00006
+rotation = 3.1627393
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_s5fnc")
+texture_disabled = ExtResource("4_3oqed")
+
+[node name="RightButton" type="TextureButton" parent="."]
+offset_left = 989.00006
+offset_top = 293.99997
+offset_right = 1245.0
+offset_bottom = 550.0
+rotation = 1.5723478
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_s5fnc")
+texture_disabled = ExtResource("4_3oqed")
+
+[node name="FrontButton" type="TextureButton" parent="."]
+offset_left = 468.0
+offset_top = 21.0
+offset_right = 724.0
+offset_bottom = 277.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_s5fnc")
+texture_disabled = ExtResource("4_3oqed")
+
+[node name="LeftButton" type="TextureButton" parent="."]
+offset_left = 202.0
+offset_top = 503.00003
+offset_right = 458.0
+offset_bottom = 759.0
+rotation = -1.6261355
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_s5fnc")
+texture_disabled = ExtResource("4_3oqed")
+
+[node name="Minimap" type="TileMapLayer" parent="."]
+position = Vector2(150, 117)
+tile_set = SubResource("TileSet_fu5ud")
+
+[connection signal="pressed" from="BackButton" to="." method="_go" binds= ["back"]]
+[connection signal="pressed" from="RightButton" to="." method="_go" binds= ["right"]]
+[connection signal="pressed" from="FrontButton" to="." method="_go" binds= ["front"]]
+[connection signal="pressed" from="LeftButton" to="." method="_go" binds= ["left"]]
