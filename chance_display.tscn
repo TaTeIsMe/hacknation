@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://mow5jmvpgh8t"]
+
+[ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="1_xadcv"]
+
+[sub_resource type="Theme" id="Theme_6ymuk"]
+
+[sub_resource type="Theme" id="Theme_pho8o"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 14.0
+offset_top = -1.0
+offset_right = 267.0
+offset_bottom = 146.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 12.0
+offset_right = 242.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_xadcv")
+theme_override_font_sizes/font_size = 16
+text = "Twoja szansa na 
+pomyślne rzucenie zaklęcia"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Chance Display" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 66.0
+offset_right = 241.0
+offset_bottom = 132.0
+theme = SubResource("Theme_6ymuk")
+theme_override_colors/default_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("1_xadcv")
+theme_override_font_sizes/normal_font_size = 30
+text = "80%"
+horizontal_alignment = 2
+
+[node name="Chance Details" type="RichTextLabel" parent="Chance Display"]
+clip_contents = false
+layout_mode = 0
+offset_top = 38.0
+offset_right = 125.0
+offset_bottom = 58.0
+tooltip_text = "(Bazowa celność zaklęcia + twój Fart)"
+mouse_default_cursor_shape = 16
+theme = SubResource("Theme_pho8o")
+theme_override_colors/default_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("1_xadcv")
+theme_override_fonts/bold_font = ExtResource("1_xadcv")
+theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/bold_font_size = 12
+bbcode_enabled = true
+text = "(20% + [color=green]60%[/color])"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 2

@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://cejnpr5du071r"]
+
+[ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="1_ybxu1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqw0a"]
+bg_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybxu1"]
+bg_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+
+[node name="ProgressBar" type="ProgressBar"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -274.0
+offset_top = 25.0
+offset_right = 279.0
+offset_bottom = 68.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_eqw0a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ybxu1")
+value = 25.0
+rounded = true
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -56.0
+offset_right = -9.0
+offset_bottom = 45.0
+theme_override_colors/font_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("1_ybxu1")
+theme_override_font_sizes/font_size = 35
+text = "PŻ"
+horizontal_alignment = 1
+vertical_alignment = 1

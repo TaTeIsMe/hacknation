@@ -1,0 +1,126 @@
+[gd_scene load_steps=14 format=3 uid="uid://beuhhn4exqr55"]
+
+[ext_resource type="Script" uid="uid://clssfp2ijep4u" path="res://gameplay_menu.gd" id="1_mvg78"]
+[ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="1_usc4k"]
+[ext_resource type="Shader" uid="uid://c5tnsw4y8tnfc" path="res://blur.gdshader" id="1_v0se8"]
+[ext_resource type="PackedScene" uid="uid://bbrrdeo8e3gst" path="res://spell_button.tscn" id="2_2v524"]
+[ext_resource type="PackedScene" uid="uid://cejnpr5du071r" path="res://hp_bar.tscn" id="3_2v524"]
+[ext_resource type="PackedScene" uid="uid://cm0wimogum8sb" path="res://spell_info.tscn" id="4_stbhr"]
+[ext_resource type="PackedScene" uid="uid://mow5jmvpgh8t" path="res://chance_display.tscn" id="5_q0lyc"]
+[ext_resource type="Script" uid="uid://clp73suhrnwdi" path="res://spell_info.gd" id="6_ek47n"]
+[ext_resource type="Script" uid="uid://b661s4fjq7xbc" path="res://chance_display.gd" id="7_2kudj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_smepj"]
+shader = ExtResource("1_v0se8")
+shader_parameter/lod = 2.000000095
+
+[sub_resource type="QuadMesh" id="QuadMesh_v0se8"]
+
+[sub_resource type="Gradient" id="Gradient_2v524"]
+colors = PackedColorArray(0.9411765, 0.92156863, 0.5529412, 0.25490198, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_stbhr"]
+gradient = SubResource("Gradient_2v524")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mvg78")
+
+[node name="Placeholder BG" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.6313726)
+self_modulate = Color(0.23900445, 0.23900445, 0.23900445, 1)
+position = Vector2(576.99994, 323.99997)
+scale = Vector2(0.9787956, 0.8470588)
+texture = ExtResource("1_usc4k")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_smepj")
+layout_mode = 0
+offset_top = 454.0
+offset_right = 1151.971
+offset_bottom = 640.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.25490198, 0.22352941, 0.22352941, 0.5254902)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(575.97876, 549.49756)
+rotation = -3.1415925
+scale = Vector2(1151.9712, -196.97957)
+mesh = SubResource("QuadMesh_v0se8")
+texture = SubResource("GradientTexture2D_stbhr")
+
+[node name="Spell List" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 479.0
+offset_top = 502.0
+offset_right = 689.0
+offset_bottom = 594.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(105, 46)
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 32
+columns = 2
+
+[node name="Spell 1" parent="Spell List" instance=ExtResource("2_2v524")]
+layout_mode = 2
+button_text = "asdfsadfas"
+
+[node name="Spell 2" parent="Spell List" instance=ExtResource("2_2v524")]
+layout_mode = 2
+button_text = "asdfsad"
+spell_accuracy = 30
+
+[node name="Spell 3" parent="Spell List" instance=ExtResource("2_2v524")]
+layout_mode = 2
+spell_accuracy = 40
+
+[node name="Spell 4" parent="Spell List" instance=ExtResource("2_2v524")]
+layout_mode = 2
+button_text = "Buttsddon"
+spell_accuracy = 50
+
+[node name="HP Bar" parent="." instance=ExtResource("3_2v524")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 294.0
+offset_top = 45.0
+offset_right = 847.0
+offset_bottom = 88.0
+grow_horizontal = 1
+
+[node name="Spell Info" parent="." instance=ExtResource("4_stbhr")]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 502.0
+offset_right = 382.0
+offset_bottom = 592.0
+script = ExtResource("6_ek47n")
+
+[node name="Mana placeholder" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 940.0
+offset_top = 502.0
+offset_right = 1133.0
+offset_bottom = 635.0
+
+[node name="Chance Display" parent="." instance=ExtResource("5_q0lyc")]
+layout_mode = 0
+offset_left = 890.0
+offset_top = 221.0
+offset_right = 1015.0
+offset_bottom = 299.0
+script = ExtResource("7_2kudj")
+
+[connection signal="pressed" from="Spell List/Spell 2" to="Spell Info" method="_on_spell_pressed" binds= [NodePath(".")]]

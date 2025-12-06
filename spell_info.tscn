@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm0wimogum8sb"]
+
+[ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="1_0us4i"]
+[ext_resource type="StyleBox" uid="uid://mxgta0ryhqcp" path="res://Styles/spell_info_label_style.tres" id="2_do2ka"]
+[ext_resource type="StyleBox" uid="uid://cdimqfasb66l" path="res://Styles/spell_info_value_style.tres" id="3_keafv"]
+
+[sub_resource type="Theme" id="Theme_do2ka"]
+default_font = ExtResource("1_0us4i")
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_cy1f1"]
+default_font = ExtResource("1_0us4i")
+default_font_size = 22
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 183.0
+offset_top = 17.0
+offset_right = 236.0
+offset_bottom = 46.0
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = -204.0
+offset_right = -34.0
+offset_bottom = 65.0
+theme = SubResource("Theme_do2ka")
+theme_override_colors/font_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+text = "Informacje o
+ zaklęciu"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spell Info" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 142.0
+offset_bottom = 104.0
+theme = SubResource("Theme_cy1f1")
+theme_override_constants/h_separation = 24
+theme_override_constants/v_separation = 24
+columns = 2
+
+[node name="Acc" type="Label" parent="Spell Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_styles/normal = ExtResource("2_do2ka")
+text = "Celność: "
+
+[node name="Acc Value" type="Label" parent="Spell Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_styles/normal = ExtResource("3_keafv")
+text = "NaN"
+
+[node name="Power" type="Label" parent="Spell Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_styles/normal = ExtResource("2_do2ka")
+text = "Moc: "
+
+[node name="Power Value" type="Label" parent="Spell Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 16
+theme_override_styles/normal = ExtResource("3_keafv")
+text = "NaN"
