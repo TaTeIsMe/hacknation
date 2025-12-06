@@ -6,5 +6,6 @@
 [node name="Main" type="Node"]
 
 [node name="Navigator" parent="." instance=ExtResource("1_0xm2m")]
+scale = Vector2(0.76000017, 0.76000017)
 
 [node name="Node2D" parent="." instance=ExtResource("2_h2yge")]

@@ -28,24 +28,52 @@ const unvisited_tile = Vector2i(1,0)
 
 var poop = false
 
-func update_minimap(room: Room, pos = Vector2i.ZERO, orientation=Vector2i.DOWN):
+func update_minimap(room: Room, pos = Vector2i.ZERO, orientation=Vector2i.UP):
 	$MinimapIcons.erase_cell(pos)
-	if room == self.position_stack[-1]:
-		$MinimapIcons.set_cell(pos, 0, wizard_tile)
+	
 		
-	if room == head:
-		$MinimapBG.set_cell(pos, 0, start_tile)
-	elif room.visited:
-		$MinimapBG.set_cell(pos, 0, visited_tile)
-	else:
-		$MinimapBG.set_cell(pos, 0, unvisited_tile)
-		return;
+		
+	var idx = 0;
+	if orientation == Vector2i.DOWN:
+		idx = 1
+	elif orientation == Vector2i.LEFT:
+		idx = 2
+	elif orientation == Vector2i.UP:
+		idx = 3
+	idx += 1
+	idx %= 4
+	
+	var w = [Vector2i(7,0), Vector2i(5,0),Vector2i(6,0),Vector2i(4,0)]
+	if room == self.position_stack[-1]:
+		$MinimapIcons.set_cell(pos, 0, w[idx])
+	
+
+	
+	var mask = [room.right != null, room.front != null, room.left != null]
+	var t = [Vector2i(3,0), Vector2i(3,1), Vector2i(2,1), Vector2i(2,0)]
+	var l = [Vector2i(1,1), Vector2i(0,1), Vector2i(0,2), Vector2i(1,2)]
+	var d = [Vector2i(3,2), Vector2i(3,3), Vector2i(2,3), Vector2i(2,2)]
+	var s = [Vector2i(1,3), Vector2i(0,3)]
+	var b = [Vector2i(4,3), Vector2i(4,2), Vector2i(5,2), Vector2i(5,3)]
+	if !room.visited:
+		$MinimapBG.set_cell(pos, 0, b[idx])
+		return
+	if mask == [true, true, true]:
+		$MinimapBG.set_cell(pos, 0, Vector2i(6,3))
+	elif mask == [true, false, true]:
+		$MinimapBG.set_cell(pos, 0, t[idx])
+	elif mask == [true, false, false] || mask == [false, false, true] :
+		$MinimapBG.set_cell(pos, 0, l[idx])
+	elif mask == [false, false, false]:
+		$MinimapBG.set_cell(pos, 0, d[idx])
+	elif mask == [false, true, false]:
+		$MinimapBG.set_cell(pos, 0, s[idx% 2])
 		
 	if room.left != null:
-		var left_dir = Vector2i(-orientation.y, -orientation.x)
+		var left_dir = Vector2i(orientation.y, -orientation.x)
 		self.update_minimap(room.left, pos + left_dir, left_dir)
 	if room.right != null:
-		var right_dir = Vector2i(orientation.y, orientation.x)
+		var right_dir = Vector2i(-orientation.y, orientation.x)
 		self.update_minimap(room.right, pos + right_dir, right_dir)
 	if room.front != null:
 		self.update_minimap(room.front, pos + orientation, orientation)
@@ -61,8 +89,6 @@ func update_scene():
 	$RightButton.visible = self.position_stack[-1].right != null
 	$FrontButton.visible = self.position_stack[-1].front != null
 	$LeftButton.visible = self.position_stack[-1].left != null
-	
-	$Walloverlay.visible = false
 	
 	var room = self.position_stack[-1]
 	match [room.left != null, room.front != null, room.right != null]:
