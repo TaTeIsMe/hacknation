@@ -32,6 +32,7 @@ anchors_preset = 0
 script = ExtResource("1_mvg78")
 
 [node name="Placeholder BG" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.6313726)
 self_modulate = Color(0.23900445, 0.23900445, 0.23900445, 1)
 position = Vector2(576.99994, 323.99997)

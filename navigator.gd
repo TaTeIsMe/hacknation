@@ -1,53 +1,79 @@
 extends Node2D
 
+class RoomLoot:
+	func tile_pos() -> Vector2i:
+		return Vector2i.ZERO
+
 class Room:
-	#var back: Room = null
 	var left: Room = null
 	var right: Room = null
 	var front: Room = null
-	#var pos: Vector2i
-	#var orientation: Vector2i
+	var visited = false
 	
 	func _init(l=null,f=null,r=null):
-		#self.pos = p
-		#self.orientation = o
-		#self.back = null
-		
 		self.left = l
-		#if self.left != null:
-			#self.left.back = self
-			#var left_dir = Vector2i(-self.orientation.y, self.orientation.x)
-			#self.left.pos = self.pos + left_dir
-			#self.left.orientation = left_dir
-			
 		self.right = r
-		#if self.right != null:
-			#self.right.back = self
-			#var right_dir = Vector2i(self.orientation.y, -self.orientation.x)
-			#self.right.pos = self.pos + right_dir
-			#self.right.orientation = right_dir
-			
 		self.front = f
-		#if self.front != null:
-			#self.front.back = self
-			#self.front.pos = self.pos + self.orientation
-			#self.front.orientation = self.orientation
-	
-var head = Room.new(Room.new(), null, Room.new(Room.new(),null,Room.new()))
+		
+var head = Room.new(Room.new(), null, Room.new(Room.new(),null,Room.new(Room.new(null,Room.new()))))
 var position_stack: Array = [head]
 
-func update_minimap(room: Room, pos = Vector2i.ZERO, orientation=Vector2i.DOWN):
-	if room == self.position_stack[-1]:
-		$Minimap.set_cell(pos, 0, Vector2i(5,3))
-	else:
-		$Minimap.set_cell(pos, 0, Vector2i(0,0))
+const start_tile = Vector2i(6,3)
+const gamba_tile = Vector2i(5,3)
+const treasure_tile = Vector2i(5,2)
+const battle_tile = Vector2i(5,1)
+const wizard_tile = Vector2i(5,0)
+const visited_tile = Vector2i(0,0)
+const unvisited_tile = Vector2i(1,0)
 
+var poop = false
+
+func update_minimap(room: Room, pos = Vector2i.ZERO, orientation=Vector2i.UP):
+	$MinimapIcons.erase_cell(pos)
+	
+		
+		
+	var idx = 0;
+	if orientation == Vector2i.DOWN:
+		idx = 1
+	elif orientation == Vector2i.LEFT:
+		idx = 2
+	elif orientation == Vector2i.UP:
+		idx = 3
+	idx += 1
+	idx %= 4
+	
+	var w = [Vector2i(7,0), Vector2i(5,0),Vector2i(6,0),Vector2i(4,0)]
+	if room == self.position_stack[-1]:
+		$MinimapIcons.set_cell(pos, 0, w[idx])
+	
+
+	
+	var mask = [room.right != null, room.front != null, room.left != null]
+	var t = [Vector2i(3,0), Vector2i(3,1), Vector2i(2,1), Vector2i(2,0)]
+	var l = [Vector2i(1,1), Vector2i(0,1), Vector2i(0,2), Vector2i(1,2)]
+	var d = [Vector2i(3,2), Vector2i(3,3), Vector2i(2,3), Vector2i(2,2)]
+	var s = [Vector2i(1,3), Vector2i(0,3)]
+	var b = [Vector2i(4,3), Vector2i(4,2), Vector2i(5,2), Vector2i(5,3)]
+	if !room.visited:
+		$MinimapBG.set_cell(pos, 0, b[idx])
+		return
+	if mask == [true, true, true]:
+		$MinimapBG.set_cell(pos, 0, Vector2i(6,3))
+	elif mask == [true, false, true]:
+		$MinimapBG.set_cell(pos, 0, t[idx])
+	elif mask == [true, false, false] || mask == [false, false, true] :
+		$MinimapBG.set_cell(pos, 0, l[idx])
+	elif mask == [false, false, false]:
+		$MinimapBG.set_cell(pos, 0, d[idx])
+	elif mask == [false, true, false]:
+		$MinimapBG.set_cell(pos, 0, s[idx% 2])
 		
 	if room.left != null:
-		var left_dir = Vector2i(-orientation.y, -orientation.x)
+		var left_dir = Vector2i(orientation.y, -orientation.x)
 		self.update_minimap(room.left, pos + left_dir, left_dir)
 	if room.right != null:
-		var right_dir = Vector2i(orientation.y, orientation.x)
+		var right_dir = Vector2i(-orientation.y, orientation.x)
 		self.update_minimap(room.right, pos + right_dir, right_dir)
 	if room.front != null:
 		self.update_minimap(room.front, pos + orientation, orientation)
@@ -86,6 +112,7 @@ func update_scene():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.head.visited = true
 	self.update_scene()
 	pass # Replace with function body.
 
@@ -98,13 +125,16 @@ func _go(where: String) -> void:
 		if self.position_stack.size() > 1:
 			self.position_stack.pop_back()
 	elif where == "right":
+		self.poop = !self.poop
 		self.position_stack.push_back(self.position_stack[-1].right)
 	elif where == "front":
 		self.position_stack.push_back(self.position_stack[-1].front)
 	elif where == "left":
+		self.poop = !self.poop
 		self.position_stack.push_back(self.position_stack[-1].left)
 	else:
 		printerr("gdzie ty idziesz?? ", where)
+	self.position_stack[-1].visited = true
 	self.update_scene()
 		
 		
