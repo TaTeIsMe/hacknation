@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsnd2ohicm7j1"]
+
+[ext_resource type="Texture2D" uid="uid://c3w4i1jou3xe" path="res://Resources/slime.png" id="1_ubu8l"]
+[ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="2_843cr"]
+
+[node name="Encounter" type="Node2D"]
+
+[node name="Encounter Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ubu8l")
+
+[node name="Encounter Label" type="Label" parent="."]
+offset_left = -500.0
+offset_top = 143.0
+offset_right = 500.0
+offset_bottom = 284.0
+theme_override_colors/font_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_constants/outline_size = 24
+theme_override_fonts/font = ExtResource("2_843cr")
+theme_override_font_sizes/font_size = 48
+text = "Glucior"
+horizontal_alignment = 1
