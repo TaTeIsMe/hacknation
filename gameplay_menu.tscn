@@ -89,16 +89,19 @@ spell_kind = 1
 [node name="Spell 2" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
 spell_accuracy = 12.5
+spell_power = 25.0
 
 [node name="Spell 3" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
 spell_kind = 2
 spell_accuracy = 0.05
+spell_power = 100.0
 
 [node name="Spell 4" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
 spell_kind = 3
 spell_accuracy = 0.001
+spell_power = 10000.0
 
 [node name="HP Bar" parent="." instance=ExtResource("3_2v524")]
 layout_mode = 0

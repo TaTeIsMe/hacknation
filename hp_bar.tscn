@@ -32,7 +32,7 @@ offset_bottom = 68.0
 grow_horizontal = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_eqw0a")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ybxu1")
-value = 25.0
+value = 100.0
 rounded = true
 show_percentage = false
 

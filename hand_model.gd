@@ -80,8 +80,7 @@ func begin_charging():
 func _on_node_2d_spell_cast(kind: SpellButton.SpellKind, power: float) -> void:
 	$"Charging Sprite".visible = false
 	self.cast_a_spell(kind)
-	pass # Replace with function body.
 
 
 func _on_node_2d_spell_down(kind: SpellButton.SpellKind) -> void:
-	begin_charging() # Replace with function body.
+	begin_charging()
