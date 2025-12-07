@@ -1,22 +1,6 @@
-[gd_scene load_steps=37 format=3 uid="uid://dcebgkqqeu7yx"]
+[gd_scene load_steps=20 format=3 uid="uid://dcebgkqqeu7yx"]
 
 [ext_resource type="Texture2D" uid="uid://clj0kx3kovat2" path="res://Resources/luck_border/luck_outer.png" id="1_rx2lg"]
-[ext_resource type="Texture2D" uid="uid://ce1fcwrx32ywg" path="res://Resources/charge_animation/charge0000.png" id="2_alx4j"]
-[ext_resource type="Texture2D" uid="uid://c05iolvecwn8u" path="res://Resources/charge_animation/charge0001.png" id="3_et0qa"]
-[ext_resource type="Texture2D" uid="uid://degjni0bb0cup" path="res://Resources/charge_animation/charge0010.png" id="4_x8ie7"]
-[ext_resource type="Texture2D" uid="uid://c5w46r607i4dg" path="res://Resources/charge_animation/charge0011.png" id="5_ja6lf"]
-[ext_resource type="Texture2D" uid="uid://ces0dabwxbku3" path="res://Resources/charge_animation/charge0012.png" id="6_yu5x5"]
-[ext_resource type="Texture2D" uid="uid://di8vyss7ufji0" path="res://Resources/charge_animation/charge0013.png" id="7_yunwv"]
-[ext_resource type="Texture2D" uid="uid://y8t5a3j8b5m7" path="res://Resources/charge_animation/charge0014.png" id="8_xo7ey"]
-[ext_resource type="Texture2D" uid="uid://bikdm0dmlu468" path="res://Resources/charge_animation/charge0015.png" id="9_ibva4"]
-[ext_resource type="Texture2D" uid="uid://d1fl6dvcq312f" path="res://Resources/charge_animation/charge0002.png" id="10_i06m4"]
-[ext_resource type="Texture2D" uid="uid://n0vo0242keih" path="res://Resources/charge_animation/charge0003.png" id="11_7hr10"]
-[ext_resource type="Texture2D" uid="uid://bk7eakn04wgr" path="res://Resources/charge_animation/charge0004.png" id="12_x5jbe"]
-[ext_resource type="Texture2D" uid="uid://dillv0kumfq5b" path="res://Resources/charge_animation/charge0005.png" id="13_wrier"]
-[ext_resource type="Texture2D" uid="uid://dfsfx8cn4u0uu" path="res://Resources/charge_animation/charge0006.png" id="14_na5n3"]
-[ext_resource type="Texture2D" uid="uid://bjw0hw7c2e7gw" path="res://Resources/charge_animation/charge0007.png" id="15_03f2s"]
-[ext_resource type="Texture2D" uid="uid://yy5ief0k4iw" path="res://Resources/charge_animation/charge0008.png" id="16_g8s0g"]
-[ext_resource type="Texture2D" uid="uid://caccbnofqnems" path="res://Resources/charge_animation/charge0009.png" id="17_7mxqn"]
 [ext_resource type="Texture2D" uid="uid://bx4hvijg5saiw" path="res://Resources/luck_animation/frame0000.png" id="18_p7mvn"]
 [ext_resource type="Texture2D" uid="uid://c385ke2h5825o" path="res://Resources/luck_animation/frame0001.png" id="19_agh5x"]
 [ext_resource type="Texture2D" uid="uid://bl0uyfhyot24v" path="res://Resources/luck_animation/frame0010.png" id="20_tlehx"]
@@ -34,41 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://cm2ydv2qbjtvd" path="res://Resources/luck_animation/frame0008.png" id="32_e0xdq"]
 [ext_resource type="Texture2D" uid="uid://baqi7cxjotwl8" path="res://Resources/luck_animation/frame0009.png" id="33_3wdpb"]
 [ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="34_alx4j"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_gksn5"]
-frames = 16
-speed_scale = 20.0
-frame_0/texture = ExtResource("2_alx4j")
-frame_1/texture = ExtResource("3_et0qa")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("10_i06m4")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("11_7hr10")
-frame_3/duration = 1.0
-frame_4/texture = ExtResource("12_x5jbe")
-frame_4/duration = 1.0
-frame_5/texture = ExtResource("13_wrier")
-frame_5/duration = 1.0
-frame_6/texture = ExtResource("14_na5n3")
-frame_6/duration = 1.0
-frame_7/texture = ExtResource("15_03f2s")
-frame_7/duration = 1.0
-frame_8/texture = ExtResource("16_g8s0g")
-frame_8/duration = 1.0
-frame_9/texture = ExtResource("17_7mxqn")
-frame_9/duration = 1.0
-frame_10/texture = ExtResource("4_x8ie7")
-frame_10/duration = 1.0
-frame_11/texture = ExtResource("5_ja6lf")
-frame_11/duration = 1.0
-frame_12/texture = ExtResource("6_yu5x5")
-frame_12/duration = 1.0
-frame_13/texture = ExtResource("7_yunwv")
-frame_13/duration = 1.0
-frame_14/texture = ExtResource("8_xo7ey")
-frame_14/duration = 1.0
-frame_15/texture = ExtResource("9_ibva4")
-frame_15/duration = 1.0
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_o37p6"]
 frames = 16
@@ -112,7 +61,6 @@ scale = Vector2(0.3, 0.3)
 value = 70.0
 fill_mode = 3
 texture_under = ExtResource("1_rx2lg")
-texture_over = SubResource("AnimatedTexture_gksn5")
 texture_progress = SubResource("AnimatedTexture_o37p6")
 
 [node name="Mana label" type="Label" parent="."]

@@ -58,6 +58,7 @@ theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.152941
 theme_override_constants/outline_size = 16
 theme_override_styles/normal = ExtResource("3_keafv")
 text = "NaN"
+horizontal_alignment = 2
 
 [node name="Power" type="Label" parent="Spell Info"]
 layout_mode = 2
@@ -74,3 +75,4 @@ theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.152941
 theme_override_constants/outline_size = 16
 theme_override_styles/normal = ExtResource("3_keafv")
 text = "NaN"
+horizontal_alignment = 2

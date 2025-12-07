@@ -1,12 +1,14 @@
-extends Button
+extends ProgressBar
 
-@export var button_text: String = "Button"
-@export var spell_accuracy: float = 20.0
-@export var spell_power: float = 10.0
+@export var enemy_present: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	self.text = button_text
+	if(enemy_present):
+		self.visible = true
+	else:
+		self.visible = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
