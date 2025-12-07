@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_navigator_start_encounter(kind: Encounter.EnemyKind) -> void:
-	$"HP Bar".visible = true
+	$"HP Bar".visible = false
 
 
 func _on_hand_model_is_charging(charge: bool) -> void:
