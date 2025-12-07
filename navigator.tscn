@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cf06keqo5si2c"]
+[gd_scene load_steps=19 format=3 uid="uid://cf06keqo5si2c"]
 
 [ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
 [ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="3_j4p50"]
@@ -8,25 +8,58 @@
 [ext_resource type="Texture2D" uid="uid://cnsuspttsah53" path="res://Resources/decoration_2.png" id="4_j4p50"]
 [ext_resource type="Texture2D" uid="uid://bi4d7y0ebhxvc" path="res://Resources/decoration_3.png" id="5_6qkjq"]
 [ext_resource type="Texture2D" uid="uid://cqdwigh7imykx" path="res://Resources/Corridors/wall.png" id="5_17f0l"]
-[ext_resource type="Texture2D" uid="uid://dkvcbueh3ylsv" path="res://Resources/decoration_4.png" id="6_sm8et"]
+[ext_resource type="Texture2D" uid="uid://cxtw6qvy6t6wt" path="res://Resources/crack1.png" id="8_s21u5"]
+[ext_resource type="Texture2D" uid="uid://dldfsmylxadox" path="res://Resources/crack2.png" id="9_pk57x"]
 [ext_resource type="PackedScene" uid="uid://cv7jj0mhgl3ax" path="res://minimap.tscn" id="10_j4p50"]
+[ext_resource type="Texture2D" uid="uid://dnaqjl8bvm0uy" path="res://Resources/crack3.png" id="10_pm1e8"]
+[ext_resource type="Texture2D" uid="uid://lkvqsjptqkhb" path="res://Resources/crack4.png" id="11_qloal"]
+[ext_resource type="Texture2D" uid="uid://ggux3wryyr4r" path="res://Resources/crack5.png" id="12_6cids"]
+[ext_resource type="Texture2D" uid="uid://138dmdf38uv0" path="res://Resources/crack7.png" id="13_f56v0"]
+[ext_resource type="Texture2D" uid="uid://sr1lowah3dfo" path="res://Resources/crack8.png" id="14_g3vol"]
+[ext_resource type="Texture2D" uid="uid://msycvq7cseqe" path="res://Resources/decoration_5.png" id="15_s21u5"]
+[ext_resource type="Texture2D" uid="uid://lmh6qsg28xua" path="res://Resources/crack9.png" id="15_tlc1s"]
 
 [node name="Navigator" type="Node2D"]
 script = ExtResource("1_18orr")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(287, 287)
-scale = Vector2(0.56, 0.56)
+scale = Vector2(1.125, 0.635)
 
 [node name="Background" type="Sprite2D" parent="Node2D"]
+position = Vector2(512, 511.99997)
 texture = ExtResource("5_17f0l")
 
 [node name="Wygrana" type="Sprite2D" parent="Node2D"]
-position = Vector2(22.321438, 82.36609)
-scale = Vector2(0.41045678, 0.42542025)
+position = Vector2(517.3334, 560.6299)
+scale = Vector2(0.21130453, 0.3673383)
 texture = ExtResource("3_j4p50")
 
 [node name="Decorations" type="Node2D" parent="Node2D"]
+position = Vector2(512, 511.99997)
+
+[node name="Crack1" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("8_s21u5")
+
+[node name="Crack2" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("9_pk57x")
+
+[node name="Crack3" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("10_pm1e8")
+
+[node name="Crack4" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("11_qloal")
+
+[node name="Crack5" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("12_6cids")
+
+[node name="Crack7" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("13_f56v0")
+
+[node name="Crack8" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("14_g3vol")
+
+[node name="Crack9" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("15_tlc1s")
 
 [node name="Decoration1" type="Sprite2D" parent="Node2D/Decorations"]
 texture = ExtResource("3_xv1f3")
@@ -38,13 +71,16 @@ texture = ExtResource("4_j4p50")
 texture = ExtResource("5_6qkjq")
 
 [node name="Decoration4" type="Sprite2D" parent="Node2D/Decorations"]
-texture = ExtResource("6_sm8et")
+texture = ExtResource("15_s21u5")
+
+[node name="Decoration5" type="Sprite2D" parent="Node2D/Decorations"]
+texture = ExtResource("15_s21u5")
 
 [node name="BackButton" type="TextureButton" parent="."]
-offset_left = 364.06305
-offset_top = 487.99994
-offset_right = 620.06305
-offset_bottom = 743.99994
+offset_left = 668.0
+offset_top = 495.99997
+offset_right = 924.0
+offset_bottom = 752.0
 rotation = 3.1627393
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
@@ -52,10 +88,10 @@ texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="RightButton" type="TextureButton" parent="."]
-offset_left = 501.06308
-offset_top = 219.0
-offset_right = 757.0631
-offset_bottom = 475.00003
+offset_left = 885.0
+offset_top = 237.00002
+offset_right = 1141.0
+offset_bottom = 493.00006
 rotation = 1.5723478
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
@@ -63,20 +99,20 @@ texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="FrontButton" type="TextureButton" parent="."]
-offset_left = 215.06302
-offset_top = 101.0
-offset_right = 471.06302
-offset_bottom = 357.0
+offset_left = 507.99997
+offset_top = 155.00002
+offset_right = 764.0
+offset_bottom = 411.0
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="LeftButton" type="TextureButton" parent="."]
-offset_left = 65.06302
-offset_top = 380.00003
-offset_right = 321.06302
-offset_bottom = 636.00006
+offset_left = 304.0
+offset_top = 411.0
+offset_right = 560.0
+offset_bottom = 667.0
 rotation = -1.6261355
 scale = Vector2(0.6400622, 0.5996289)
 size_flags_horizontal = 4
@@ -85,7 +121,7 @@ texture_normal = ExtResource("3_s5fnc")
 texture_disabled = ExtResource("4_3oqed")
 
 [node name="Minimap" parent="." instance=ExtResource("10_j4p50")]
-position = Vector2(65.06302, 380.00003)
+position = Vector2(136, 113)
 
 [connection signal="pressed" from="BackButton" to="." method="_go" binds= ["back"]]
 [connection signal="pressed" from="RightButton" to="." method="_go" binds= ["right"]]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv7jj0mhgl3ax"]
+[gd_scene load_steps=7 format=3 uid="uid://cv7jj0mhgl3ax"]
 
 [ext_resource type="Script" uid="uid://cph825emw8ckr" path="res://minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://bugsouqfelad6" path="res://Resources/Tiles/tileSet.png" id="1_yfyr0"]
+[ext_resource type="Texture2D" uid="uid://bbmxq3mabmdri" path="res://Resources/mask.png" id="3_0pgu0"]
+[ext_resource type="Texture2D" uid="uid://b8g3uu8j4e077" path="res://Resources/radar.png" id="4_uxthi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17f0l"]
 texture = ExtResource("1_yfyr0")
@@ -41,20 +43,26 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_17f0l")
 
 [node name="Minimap" type="Node2D"]
-rotation = -1.6261355
 scale = Vector2(0.6400622, 0.5996289)
 script = ExtResource("1_cvo86")
 
-[node name="BG" type="TileMapLayer" parent="."]
-position = Vector2(402.92877, 165.69202)
-rotation = 1.6226461
-scale = Vector2(1.6673859, 1.5626814)
+[node name="Radar" type="Sprite2D" parent="."]
+scale = Vector2(3.0930083, 3.0930088)
+texture = ExtResource("4_uxthi")
+
+[node name="Mask" type="Sprite2D" parent="."]
+clip_children = 1
+scale = Vector2(3.0270495, 3.0270495)
+texture = ExtResource("3_0pgu0")
+
+[node name="BG" type="TileMapLayer" parent="Mask"]
+position = Vector2(-16.516129, -16.527956)
+scale = Vector2(0.55082875, 0.5162391)
 skew = 0.0072124004
 tile_set = SubResource("TileSet_fu5ud")
 
-[node name="Icons" type="TileMapLayer" parent="."]
-position = Vector2(402.92877, 165.69202)
-rotation = 1.6226461
-scale = Vector2(1.6673859, 1.5626814)
+[node name="Icons" type="TileMapLayer" parent="Mask"]
+position = Vector2(-16.516129, -16.527956)
+scale = Vector2(0.55082875, 0.5162391)
 skew = 0.0072124004
 tile_set = SubResource("TileSet_fu5ud")
