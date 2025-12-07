@@ -19,16 +19,26 @@ func _ready() -> void:
 			var sprite: Texture2D = preload("res://Resources/slime.png")
 			self.get_node("Encounter Sprite").texture = sprite
 			self.get_node("Encounter Label").text = "Glucior"
+			$AudioStreamPlayer.stream = preload("res://Resources/Sounds/wrrr.ogg")
+			$AudioStreamPlayer.play()
 		EnemyKind.Minotaur:
 			var sprite: Texture2D = preload("res://Resources/minotour.png")
 			self.get_node("Encounter Sprite").texture = sprite
 			self.get_node("Encounter Label").text = "Gigancka\nMućka"
+			$AudioStreamPlayer.stream = preload("res://Resources/Sounds/goblin2.ogg")
+			$AudioStreamPlayer.play()
 		EnemyKind.Wizard:
 			var sprite: Texture2D = preload("res://Resources/wizard.png")
 			self.get_node("Encounter Sprite").texture = sprite
 			self.get_node("Encounter Label").text = "Wiedźmak\nStrahenstein"
+			$AudioStreamPlayer.stream = preload("res://Resources/Sounds/mongolian.ogg")
+			$AudioStreamPlayer.play()
 
 func take_damage(damage: int)-> void:
+	if($AudioStreamPlayer.stream != preload("res://Resources/Sounds/hurt1.ogg")):
+		$AudioStreamPlayer.stream = preload("res://Resources/Sounds/hurt1.ogg")
+	else: $AudioStreamPlayer.stream = preload("res://Resources/Sounds/hurt2.ogg")
+	$AudioStreamPlayer.play()
 	encounter_hp -= damage
 	if encounter_hp <= 0:
 		enemy_died.emit()

@@ -23,3 +23,5 @@ theme_override_fonts/font = ExtResource("2_843cr")
 theme_override_font_sizes/font_size = 48
 text = "Glucior"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

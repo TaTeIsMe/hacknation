@@ -66,7 +66,6 @@ func _process(delta: float) -> void:
 
 func _button_pressed():
 	$"../../".spell_cast.emit(spell_kind)
-	#spells_vars.emit(spell_kind)
 
 func _button_down():
 	$"../../".spell_down.emit(spell_kind)

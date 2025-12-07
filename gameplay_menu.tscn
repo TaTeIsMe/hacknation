@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://beuhhn4exqr55"]
+[gd_scene load_steps=22 format=3 uid="uid://beuhhn4exqr55"]
 
 [ext_resource type="Script" uid="uid://clssfp2ijep4u" path="res://gameplay_menu.gd" id="1_mvg78"]
 [ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="1_usc4k"]
@@ -13,6 +13,9 @@
 [ext_resource type="Script" uid="uid://b661s4fjq7xbc" path="res://chance_display.gd" id="7_2kudj"]
 [ext_resource type="PackedScene" uid="uid://dcebgkqqeu7yx" path="res://mana_counter.tscn" id="8_n0i6d"]
 [ext_resource type="Script" uid="uid://cvo652dt3mx00" path="res://mana_counter.gd" id="9_8a7ww"]
+[ext_resource type="Script" uid="uid://bd5lle1k3phxw" path="res://audio_stream_player.gd" id="14_ggr81"]
+[ext_resource type="Texture2D" uid="uid://bsnoq2fhm5rlh" path="res://Resources/evil_wizard.jpg" id="15_brg7e"]
+[ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="16_obbw3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_smepj"]
 shader = ExtResource("1_v0se8")
@@ -27,6 +30,8 @@ colors = PackedColorArray(0.9411765, 0.92156863, 0.5529412, 0.25490198, 1, 1, 1,
 gradient = SubResource("Gradient_2v524")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_brg7e"]
 
 [node name="Menu Control" type="Control"]
 layout_mode = 3
@@ -133,6 +138,34 @@ offset_bottom = 1349.0
 step = 0.2
 script = ExtResource("9_8a7ww")
 
+[node name="EvilWizard" type="Sprite2D" parent="Mana counter"]
+visible = false
+top_level = true
+position = Vector2(578.00006, 353)
+scale = Vector2(0.7109376, 0.7109376)
+texture = ExtResource("15_brg7e")
+
+[node name="Label" type="Label" parent="Mana counter/EvilWizard"]
+offset_left = -682.6667
+offset_top = -100.0
+offset_right = 814.3333
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+theme_override_colors/font_outline_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("16_obbw3")
+theme_override_font_sizes/font_size = 90
+text = "KONIEC RUMAKOWANIA...
+SZCZĘŚLIWI CZASU NIE LICZĄ"
+
+[node name="Sprite2D" type="Sprite2D" parent="Mana counter/EvilWizard"]
+show_behind_parent = true
+position = Vector2(-2.58667, -48.527443)
+scale = Vector2(1634.0078, 926.94495)
+texture = SubResource("PlaceholderTexture2D_brg7e")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Mana counter"]
+
 [node name="Chance Display" parent="." instance=ExtResource("5_q0lyc")]
 layout_mode = 0
 offset_left = 890.0
@@ -141,5 +174,12 @@ offset_right = 1015.0
 offset_bottom = 299.0
 script = ExtResource("7_2kudj")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("14_ggr81")
+
 [connection signal="spell_down" from="." to="Mana counter" method="_on_menu_control_spell_down"]
 [connection signal="spell_release" from="." to="Mana counter" method="_on_menu_control_spell_release"]
+[connection signal="button_up" from="Spell List/Spell 1" to="AudioStreamPlayer" method="_on_spell1_button_up"]
+[connection signal="button_up" from="Spell List/Spell 2" to="AudioStreamPlayer" method="_on_spell_2_button_up"]
+[connection signal="button_up" from="Spell List/Spell 3" to="AudioStreamPlayer" method="_on_spell_3_button_up"]
+[connection signal="button_up" from="Spell List/Spell 4" to="AudioStreamPlayer" method="_on_spell_4_button_up"]

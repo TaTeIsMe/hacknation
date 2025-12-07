@@ -98,6 +98,7 @@ func rotate_left(vec: Vector2i) -> Vector2i:
 	return Vector2i(vec.y, -vec.x)
 	
 func _go(where: String) -> void:
+	$AudioStreamPlayer.play()
 	if where == "back":
 		if self.position_stack.size() > 1:
 			self.position_stack.pop_back()

@@ -78,8 +78,11 @@ func begin_charging():
 	$"Charging Sprite".visible = true
 	$"Hand Sprite".animation = "charging"
 	$"Charging Sprite".play()
+	$"AudioStreamPlayer".stream = preload("res://Resources/Sounds/noise.ogg")
+	$"AudioStreamPlayer".play()
 
 func _on_node_2d_spell_cast(kind: SpellButton.SpellKind, power: float) -> void:
+	$"AudioStreamPlayer".stop()
 	$"Charging Sprite".visible = false
 	self.cast_a_spell(kind)
 

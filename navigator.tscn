@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cf06keqo5si2c"]
+[gd_scene load_steps=20 format=3 uid="uid://cf06keqo5si2c"]
 
 [ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
 [ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="3_j4p50"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://sr1lowah3dfo" path="res://Resources/crack8.png" id="14_g3vol"]
 [ext_resource type="Texture2D" uid="uid://msycvq7cseqe" path="res://Resources/decoration_5.png" id="15_s21u5"]
 [ext_resource type="Texture2D" uid="uid://lmh6qsg28xua" path="res://Resources/crack9.png" id="15_tlc1s"]
+[ext_resource type="AudioStream" uid="uid://cbwjt0updpors" path="res://Resources/Sounds/walk1.ogg" id="19_pk57x"]
 
 [node name="Navigator" type="Node2D"]
 script = ExtResource("1_18orr")
@@ -122,6 +123,9 @@ texture_disabled = ExtResource("4_3oqed")
 
 [node name="Minimap" parent="." instance=ExtResource("10_j4p50")]
 position = Vector2(136, 113)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_pk57x")
 
 [connection signal="pressed" from="BackButton" to="." method="_go" binds= ["back"]]
 [connection signal="pressed" from="RightButton" to="." method="_go" binds= ["right"]]

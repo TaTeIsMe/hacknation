@@ -24,6 +24,9 @@ func _process(delta: float) -> void:
 		mana_value = 0
 		self.get_node("Mana Value").text = "Zabrakło ci farta!"
 		charging = false
+		$AudioStreamPlayer.stream = preload("res://Resources/Sounds/mongolian.ogg")
+		$AudioStreamPlayer.play()
+		#$"./EvilWizard".visible = true
 		$"../".spell_release_power.emit(spell_kind, initial_mana - final_mana)
 
 func _on_menu_control_spell_down(kind: SpellButton.SpellKind) -> void:
