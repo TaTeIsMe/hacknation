@@ -14,3 +14,7 @@ func _on_enemy_ded()-> void:
 	for n in get_children():
 		remove_child(n)
 	enemy_died.emit()
+	
+func attack_enemy():
+	for child in self.get_children():
+		child.take_damage(10)

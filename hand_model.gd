@@ -8,6 +8,7 @@ var hand_state: SpriteFrames = preload("res://Styles/hand_animation_idle.tres")
 
 signal is_charging(charge: bool)
 signal done_charging(charge: bool)
+signal attack_complete
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -60,6 +61,7 @@ func _animation_done():
 	
 func _animate_spell_done():
 	$"Spell Sprite".visible = false
+	self.attack_complete.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

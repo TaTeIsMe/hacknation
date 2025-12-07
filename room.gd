@@ -36,9 +36,9 @@ var contents: RoomContents = null
 enum Decoration {NO,YES,FLIPPED}
 func get_random_decoratoin() -> Decoration:
 	var random_value = randf() 
-	if random_value < 0.05:       
+	if random_value < 0.1:       
 		return Decoration.YES
-	elif random_value < 0.1: 
+	elif random_value < 0.2: 
 		return Decoration.FLIPPED
 	else:                        
 		return Decoration.NO
