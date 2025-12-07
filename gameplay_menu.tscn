@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cm0wimogum8sb" path="res://spell_info.tscn" id="4_stbhr"]
 [ext_resource type="PackedScene" uid="uid://mow5jmvpgh8t" path="res://chance_display.tscn" id="5_q0lyc"]
 [ext_resource type="Script" uid="uid://clp73suhrnwdi" path="res://spell_info.gd" id="6_ek47n"]
-[ext_resource type="Script" path="res://hp_bar.gd" id="6_nl6mf"]
+[ext_resource type="Script" uid="uid://k4dlt8ctunbi" path="res://hp_bar.gd" id="6_nl6mf"]
 [ext_resource type="Script" uid="uid://b661s4fjq7xbc" path="res://chance_display.gd" id="7_2kudj"]
 [ext_resource type="PackedScene" uid="uid://dcebgkqqeu7yx" path="res://mana_counter.tscn" id="8_n0i6d"]
-[ext_resource type="Script" path="res://mana_counter.gd" id="9_8a7ww"]
+[ext_resource type="Script" uid="uid://cvo652dt3mx00" path="res://mana_counter.gd" id="9_8a7ww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_smepj"]
 shader = ExtResource("1_v0se8")
@@ -44,7 +44,7 @@ texture = ExtResource("1_usc4k")
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_smepj")
 layout_mode = 0
-offset_top = 454.0
+offset_top = 489.0
 offset_right = 1151.971
 offset_bottom = 640.0
 size_flags_horizontal = 3
@@ -60,7 +60,7 @@ texture = SubResource("GradientTexture2D_stbhr")
 
 [node name="Book" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.78431374)
-position = Vector2(684, 456)
+position = Vector2(270, 430)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_kyfrk")
 
@@ -71,10 +71,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 568.0
-offset_top = 502.0
-offset_right = 778.0
-offset_bottom = 594.0
+offset_left = 133.0
+offset_top = 478.0
+offset_right = 343.0
+offset_bottom = 570.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(105, 46)
@@ -115,10 +115,10 @@ enemy_present = false
 
 [node name="Spell Info" parent="." instance=ExtResource("4_stbhr")]
 layout_mode = 0
-offset_left = 197.0
-offset_top = 502.0
-offset_right = 382.0
-offset_bottom = 592.0
+offset_left = 693.0
+offset_top = 508.0
+offset_right = 878.0
+offset_bottom = 598.0
 script = ExtResource("6_ek47n")
 
 [node name="Mana counter" parent="." instance=ExtResource("8_n0i6d")]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqfxs6qksygji"]
+[gd_scene load_steps=4 format=3 uid="uid://cqfxs6qksygji"]
 
 [ext_resource type="SpriteFrames" uid="uid://smobb4iahk5b" path="res://Styles/hand_animation_idle.tres" id="1_b4xc6"]
 [ext_resource type="Script" uid="uid://cvjt7cgyx5p5l" path="res://hand_model.gd" id="1_r0eg8"]
+[ext_resource type="SpriteFrames" uid="uid://dk3ysrorkj43x" path="res://Styles/fireball_animation.tres" id="3_kmn68"]
 
 [node name="HandModel" type="Node2D"]
 script = ExtResource("1_r0eg8")
@@ -9,3 +10,8 @@ script = ExtResource("1_r0eg8")
 [node name="Hand Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_b4xc6")
 frame_progress = 0.78903407
+
+[node name="Spell Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-448, -500)
+sprite_frames = ExtResource("3_kmn68")

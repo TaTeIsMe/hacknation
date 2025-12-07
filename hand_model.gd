@@ -1,6 +1,7 @@
 extends Node2D
 
 var cast_animation = preload("res://Styles/hand_animation_cast.tres")
+var spell_animation = preload("res://Styles/fire_animation.tres")
 var hand_state: SpriteFrames = preload("res://Styles/hand_animation_idle.tres")
 @export var min_position: Vector2 = Vector2(750, 480)
 @export var max_position: Vector2 = Vector2(800, 500) 
@@ -9,16 +10,48 @@ func _ready() -> void:
 	self.get_node("Hand Sprite").set_sprite_frames(hand_state)
 	self.get_node("Hand Sprite").play()
 
-func cast_a_spell():
+func cast_a_spell(spell_type: SpellButton.SpellKind):
 	$"Hand Sprite".set_sprite_frames(cast_animation)
 	$"Hand Sprite".frame = 0
 	$"Hand Sprite".animation_looped.connect( _animation_done, ConnectFlags.CONNECT_ONE_SHOT)
 	$"Hand Sprite".play()
-	
+	match spell_type:
+		SpellButton.SpellKind.Fire:
+			spell_animation = preload("res://Styles/fire_animation.tres")
+			$"Spell Sprite".visible = true
+			$"Spell Sprite".set_sprite_frames(spell_animation)	
+			$"Spell Sprite".frame = 0
+			$"Spell Sprite".animation_looped.connect( _animate_spell_done, ConnectFlags.CONNECT_ONE_SHOT)
+			$"Spell Sprite".play()
+		SpellButton.SpellKind.Ice:
+			spell_animation = preload("res://Styles/ice_animation.tres")
+			$"Spell Sprite".visible = true
+			$"Spell Sprite".set_sprite_frames(spell_animation)	
+			$"Spell Sprite".frame = 0
+			$"Spell Sprite".animation_looped.connect( _animate_spell_done, ConnectFlags.CONNECT_ONE_SHOT)
+			$"Spell Sprite".play()
+		SpellButton.SpellKind.Spark:
+			spell_animation = preload("res://Styles/spark_animation.tres")
+			$"Spell Sprite".visible = true
+			$"Spell Sprite".set_sprite_frames(spell_animation)	
+			$"Spell Sprite".frame = 0
+			$"Spell Sprite".animation_looped.connect( _animate_spell_done, ConnectFlags.CONNECT_ONE_SHOT)
+			$"Spell Sprite".play()
+		SpellButton.SpellKind.Fireball:
+			spell_animation = preload("res://Styles/fireball_animation.tres")
+			$"Spell Sprite".visible = true
+			$"Spell Sprite".set_sprite_frames(spell_animation)	
+			$"Spell Sprite".frame = 0
+			$"Spell Sprite".animation_looped.connect( _animate_spell_done, ConnectFlags.CONNECT_ONE_SHOT)
+			$"Spell Sprite".play()
+			
 func _animation_done():
 	$"Hand Sprite".set_sprite_frames(hand_state)
 	$"Hand Sprite".frame = 0
 	$"Hand Sprite".play()
+	
+func _animate_spell_done():
+	$"Spell Sprite".visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -33,5 +66,5 @@ func _process(delta: float) -> void:
 
 
 func _on_node_2d_spell_cast(kind: SpellButton.SpellKind) -> void:
-	self.cast_a_spell()
+	self.cast_a_spell(kind)
 	pass # Replace with function body.
