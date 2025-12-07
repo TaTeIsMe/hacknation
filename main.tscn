@@ -16,7 +16,6 @@ scale = Vector2(1.778, 1)
 position = Vector2(568, 299)
 scale = Vector2(0.6, 0.6)
 script = ExtResource("3_272bh")
-enemy_kind = 2
 
 [node name="HandModel" parent="." instance=ExtResource("2_1bvp3")]
 position = Vector2(890, 532)
