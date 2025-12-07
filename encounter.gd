@@ -8,6 +8,7 @@ enum EnemyKind {
 	Wizard
 }
 
+signal enemy_died
 @export var encounter_hp: float = 100.0
 @export var enemy_kind: EnemyKind = EnemyKind.Glucior
 
@@ -26,3 +27,8 @@ func _ready() -> void:
 			var sprite: Texture2D = preload("res://Resources/wizard.png")
 			self.get_node("Encounter Sprite").texture = sprite
 			self.get_node("Encounter Label").text = "Wiedźmak\nStrahenstein"
+
+func take_damage(damage: int)-> void:
+	encounter_hp -= damage
+	if encounter_hp <= 0:
+		enemy_died.emit()

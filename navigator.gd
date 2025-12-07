@@ -30,8 +30,6 @@ func get_current_position() -> Vector2i:
 
 func update_scene():
 	var room = self.get_current_room()
-	if room.contents is Room.EncounterRoom:
-		start_encounter.emit(room.contents.enemy_kind)
 		
 	print(self.get_current_position())
 	print(self.get_current_orientation())
@@ -44,6 +42,13 @@ func update_scene():
 	$RightButton.visible = self.get_current_room().right != null
 	$FrontButton.visible = self.get_current_room().front != null
 	$LeftButton.visible = self.get_current_room().left != null
+	
+	if room.contents is Room.EncounterRoom:
+		start_encounter.emit(room.contents.enemy_kind)
+		$FrontButton.disabled = true
+		$LeftButton.disabled = true
+		$RightButton.disabled = true
+		$BackButton.disabled = true
 	
 
 	for i in range($Node2D/Decorations.get_children().size()):
@@ -122,3 +127,17 @@ func _go(where: String) -> void:
 	self.update_scene()
 		
 		
+
+
+func _on_encounter_container_enemy_died() -> void:
+	var room = self.get_current_room()
+	room.contents = null
+	$BackButton.disabled = self.position_stack.size() <= 1
+	$BackButton.visible = self.position_stack.size() > 1
+	
+	$RightButton.disabled = self.get_current_room().right == null
+	$FrontButton.disabled = self.get_current_room().front == null
+	$LeftButton.disabled = self.get_current_room().left == null
+	$RightButton.visible = self.get_current_room().right != null
+	$FrontButton.visible = self.get_current_room().front != null
+	$LeftButton.visible = self.get_current_room().left != null
