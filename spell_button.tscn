@@ -1,21 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbrrdeo8e3gst"]
+[gd_scene load_steps=7 format=3 uid="uid://bbrrdeo8e3gst"]
 
 [ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="1_35i8j"]
 [ext_resource type="StyleBox" uid="uid://dw1uj6qr6vly6" path="res://Styles/spell_button_style.tres" id="2_cmwj5"]
+[ext_resource type="StyleBox" uid="uid://ctv7vcd7uvvqa" path="res://Styles/spell_button_style_focus.tres" id="2_entsi"]
+[ext_resource type="StyleBox" uid="uid://cgs3c8v2q5quu" path="res://Styles/spell_button_style_hover.tres" id="3_2nl4a"]
 [ext_resource type="Script" uid="uid://bmp3770ghmmq2" path="res://spell_button.gd" id="3_p3h5g"]
 
 [sub_resource type="Theme" id="Theme_cmwj5"]
 default_font = ExtResource("1_35i8j")
 default_font_size = 20
-Button/colors/font_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
-Button/colors/font_focus_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+Button/colors/font_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
+Button/colors/font_focus_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
 Button/colors/font_hover_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
-Button/colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
-Button/constants/outline_size = 16
+Button/colors/font_outline_color = Color(0.9411765, 0.92156863, 0.5529412, 1)
+Button/constants/outline_size = 4
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("1_35i8j")
-Button/styles/focus = ExtResource("2_cmwj5")
-Button/styles/hover = ExtResource("2_cmwj5")
+Button/styles/focus = ExtResource("2_entsi")
+Button/styles/hover = ExtResource("3_2nl4a")
 Button/styles/normal = ExtResource("2_cmwj5")
 Button/styles/pressed = ExtResource("2_cmwj5")
 

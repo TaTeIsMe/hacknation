@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="uid://c1qjnj8kxp7gs"
 
+[global_group]
+
+Spells=""
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
