@@ -5,9 +5,14 @@ var spell_animation = preload("res://Styles/fire_animation.tres")
 var hand_state: SpriteFrames = preload("res://Styles/hand_animation_idle.tres")
 @export var min_position: Vector2 = Vector2(750, 480)
 @export var max_position: Vector2 = Vector2(800, 500) 
+
+signal is_charging(charge: bool)
+signal done_charging(charge: bool)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.get_node("Hand Sprite").set_sprite_frames(hand_state)
+	self.get_node("Hand Sprite").animation = "default"
 	self.get_node("Hand Sprite").play()
 
 func cast_a_spell(spell_type: SpellButton.SpellKind):
@@ -15,6 +20,7 @@ func cast_a_spell(spell_type: SpellButton.SpellKind):
 	$"Hand Sprite".frame = 0
 	$"Hand Sprite".animation_looped.connect( _animation_done, ConnectFlags.CONNECT_ONE_SHOT)
 	$"Hand Sprite".play()
+	is_charging.emit(true)
 	match spell_type:
 		SpellButton.SpellKind.Fire:
 			spell_animation = preload("res://Styles/fire_animation.tres")
@@ -47,8 +53,10 @@ func cast_a_spell(spell_type: SpellButton.SpellKind):
 			
 func _animation_done():
 	$"Hand Sprite".set_sprite_frames(hand_state)
+	self.get_node("Hand Sprite").animation = "default"
 	$"Hand Sprite".frame = 0
 	$"Hand Sprite".play()
+	done_charging.emit(true)
 	
 func _animate_spell_done():
 	$"Spell Sprite".visible = false
@@ -64,7 +72,16 @@ func _process(delta: float) -> void:
 	
 	self.position = target_position
 
+func begin_charging():
+	$"Charging Sprite".visible = true
+	$"Hand Sprite".animation = "charging"
+	$"Charging Sprite".play()
 
-func _on_node_2d_spell_cast(kind: SpellButton.SpellKind) -> void:
+func _on_node_2d_spell_cast(kind: SpellButton.SpellKind, power: float) -> void:
+	$"Charging Sprite".visible = false
 	self.cast_a_spell(kind)
 	pass # Replace with function body.
+
+
+func _on_node_2d_spell_down(kind: SpellButton.SpellKind) -> void:
+	begin_charging() # Replace with function body.

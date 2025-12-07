@@ -79,9 +79,9 @@ horizontal_alignment = 1
 
 [node name="Mana Value" type="Label" parent="."]
 layout_mode = 0
-offset_left = 250.0
+offset_left = -216.66666
 offset_top = 906.6665
-offset_right = 724.33325
+offset_right = 1223.3333
 offset_bottom = 1006.6664
 theme_override_colors/font_color = Color(0.49019608, 1, 0.49019608, 1)
 theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)

@@ -71,9 +71,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 133.0
+offset_left = 161.0
 offset_top = 478.0
-offset_right = 343.0
+offset_right = 371.0
 offset_bottom = 570.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -127,8 +127,8 @@ offset_left = 890.0
 offset_top = 325.0
 offset_right = 1914.0
 offset_bottom = 1349.0
+step = 0.2
 script = ExtResource("9_8a7ww")
-mana_value = 50
 
 [node name="Chance Display" parent="." instance=ExtResource("5_q0lyc")]
 layout_mode = 0
@@ -137,3 +137,6 @@ offset_top = 221.0
 offset_right = 1015.0
 offset_bottom = 299.0
 script = ExtResource("7_2kudj")
+
+[connection signal="spell_down" from="." to="Mana counter" method="_on_menu_control_spell_down"]
+[connection signal="spell_release" from="." to="Mana counter" method="_on_menu_control_spell_release"]

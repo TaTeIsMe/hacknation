@@ -6,6 +6,7 @@
 
 [node name="Encounter" type="Node2D"]
 script = ExtResource("1_h2y7j")
+enemy_kind = 2
 
 [node name="Encounter Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ubu8l")
