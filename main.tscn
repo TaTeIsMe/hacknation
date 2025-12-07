@@ -21,4 +21,5 @@ scale = Vector2(0.5, 0.5)
 [node name="Node2D" parent="." instance=ExtResource("2_h2yge")]
 
 [connection signal="start_encounter" from="Navigator" to="EncounterContainer" method="_on_navigator_start_encounter"]
+[connection signal="enemy_died" from="EncounterContainer" to="Navigator" method="_on_encounter_container_enemy_died"]
 [connection signal="spell_cast" from="Node2D" to="HandModel" method="_on_node_2d_spell_cast"]
