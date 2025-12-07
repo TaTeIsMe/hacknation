@@ -1,5 +1,7 @@
 extends Button
 
+class_name SpellButton
+
 enum SpellKind {
 	Fire,
 	Ice,
@@ -17,7 +19,6 @@ var current_state = BaseButton.DRAW_NORMAL
 
 var tween:Tween
 
-signal spells_vars(spell_type)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -61,4 +62,5 @@ func _process(delta: float) -> void:
 		tween.tween_property(tween_stylebox, "border_color", target.border_color, 0.2)
 
 func _button_pressed():
-	spells_vars.emit(spell_kind)
+	$"../../".spell_cast.emit(spell_kind)
+	#spells_vars.emit(spell_kind)

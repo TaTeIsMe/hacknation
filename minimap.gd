@@ -13,7 +13,7 @@ func update_minimap(room: Room, wizard_room: Room, pos = Vector2i.ZERO, orientat
 		$Mask/BG.clear()
 	
 	if room.visited && room.contents != null && room.contents.tile_pos() != Vector2i.ZERO:
-		$Icons.set_cell(pos, 0, room.contents.tile_pos())
+		$Mask/Icons.set_cell(pos, 0, room.contents.tile_pos())
 
 	var idx = 0;
 	if orientation == Vector2i.DOWN:

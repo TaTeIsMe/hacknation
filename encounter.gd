@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Encounter
+
 enum EnemyKind {
 	Glucior,
 	Minotaur,
@@ -24,7 +26,3 @@ func _ready() -> void:
 			var sprite: Texture2D = preload("res://Resources/wizard.png")
 			self.get_node("Encounter Sprite").texture = sprite
 			self.get_node("Encounter Label").text = "Wiedźmak\nStrahenstein"
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

@@ -4,9 +4,10 @@ extends Node2D
 var head = Room.new(
 		null, 
 			null, 
-	Room.new(null,null,Room.new(null,Room.new(Room.new(),null,Room.new()),null),), 
+	Room.new(null,null,Room.new(null,Room.new(Room.new(),null,Room.new()),null,Room.EncounterRoom.new(Encounter.EnemyKind.Glucior)),), 
 )
 
+signal start_encounter(kind: Encounter.EnemyKind)
 
 var position_stack: Array = [[head, Vector2i.LEFT, Vector2i.ZERO]]
 
@@ -28,6 +29,10 @@ func get_current_position() -> Vector2i:
 	return self.position_stack[-1][2]
 
 func update_scene():
+	var room = self.get_current_room()
+	if room.contents is Room.EncounterRoom:
+		start_encounter.emit(room.contents.enemy_kind)
+		
 	print(self.get_current_position())
 	print(self.get_current_orientation())
 	$BackButton.disabled = self.position_stack.size() <= 1
@@ -40,7 +45,7 @@ func update_scene():
 	$FrontButton.visible = self.get_current_room().front != null
 	$LeftButton.visible = self.get_current_room().left != null
 	
-	var room = self.get_current_room()
+
 	for i in range($Node2D/Decorations.get_children().size()):
 		$Node2D/Decorations.get_children()[i].visible = room.decorations[i] != Room.Decoration.NO
 		$Node2D/Decorations.get_children()[i].flip_h = room.decorations[i] == Room.Decoration.FLIPPED

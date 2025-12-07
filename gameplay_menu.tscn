@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cm0wimogum8sb" path="res://spell_info.tscn" id="4_stbhr"]
 [ext_resource type="PackedScene" uid="uid://mow5jmvpgh8t" path="res://chance_display.tscn" id="5_q0lyc"]
 [ext_resource type="Script" uid="uid://clp73suhrnwdi" path="res://spell_info.gd" id="6_ek47n"]
-[ext_resource type="Script" uid="uid://k4dlt8ctunbi" path="res://hp_bar.gd" id="6_nl6mf"]
+[ext_resource type="Script" path="res://hp_bar.gd" id="6_nl6mf"]
 [ext_resource type="Script" uid="uid://b661s4fjq7xbc" path="res://chance_display.gd" id="7_2kudj"]
 [ext_resource type="PackedScene" uid="uid://dcebgkqqeu7yx" path="res://mana_counter.tscn" id="8_n0i6d"]
-[ext_resource type="Script" uid="uid://cvo652dt3mx00" path="res://mana_counter.gd" id="9_8a7ww"]
+[ext_resource type="Script" path="res://mana_counter.gd" id="9_8a7ww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_smepj"]
 shader = ExtResource("1_v0se8")

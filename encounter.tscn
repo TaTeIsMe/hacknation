@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsnd2ohicm7j1"]
+[gd_scene load_steps=4 format=3 uid="uid://dnmpk8rjw1fes"]
 
+[ext_resource type="Script" uid="uid://cqjwl32b0xstb" path="res://encounter.gd" id="1_h2y7j"]
 [ext_resource type="Texture2D" uid="uid://c3w4i1jou3xe" path="res://Resources/slime.png" id="1_ubu8l"]
 [ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="2_843cr"]
 
 [node name="Encounter" type="Node2D"]
+script = ExtResource("1_h2y7j")
 
 [node name="Encounter Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ubu8l")
