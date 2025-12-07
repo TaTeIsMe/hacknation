@@ -9,5 +9,5 @@
 sprite_frames = ExtResource("1_b4xc6")
 frame_progress = 0.78903407
 
-[node name="Spell Animation" type="AnimatedSprite2D" parent="."]
+[node name="Spell Animation" type="AnimatedSprite2D" parent="." groups=["Spells"]]
 sprite_frames = ExtResource("2_6tb53")
