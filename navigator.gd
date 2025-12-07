@@ -3,8 +3,31 @@ extends Node2D
 # obrót minimapy, czarny syf 
 var head = Room.new(
 		null, 
-			null, 
-	Room.new(null,null,Room.new(null,Room.new(Room.new(),null,Room.new()),null,Room.EncounterRoom.new(Encounter.EnemyKind.Glucior)),), 
+		null, 
+	Room.new(
+		null,
+		null,
+		Room.new(
+			null,
+			Room.new(
+				Room.new(),
+				null,
+				Room.new(Room.new(
+					null,
+					Room.new(
+						Room.new(),
+						null,
+						Room.new(null,null,null,Room.EncounterRoom.new(Encounter.EnemyKind.Wizard))
+					),
+					null,
+					Room.EncounterRoom.new(Encounter.EnemyKind.Minotaur)
+				)
+			)
+			),
+			null,
+			Room.EncounterRoom.new(Encounter.EnemyKind.Glucior)
+		)
+	), 
 )
 
 signal start_encounter(kind: Encounter.EnemyKind)

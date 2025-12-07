@@ -109,6 +109,7 @@ spell_accuracy = 0.001
 spell_power = 10000.0
 
 [node name="HP Bar" parent="." instance=ExtResource("3_2v524")]
+visible = false
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
