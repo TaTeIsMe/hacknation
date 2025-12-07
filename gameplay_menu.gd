@@ -13,7 +13,8 @@ signal spell_release_power(spell_kind: SpellButton.SpellKind, power: float)
 func _process(delta: float) -> void:
 	self.get_node("Spell List").get_children().map(func(spell): if(spell.is_hovered()):
 		get_node("Spell Info/Spell Info/Acc Value").text = str(spell.spell_accuracy) + "%")
-	pass
+	self.get_node("Spell List").get_children().map(func(spell): if(spell.is_hovered()):
+		get_node("Spell Info/Spell Info/Power Value").text = str(spell.spell_power) + "%")
 
 
 func _on_navigator_start_encounter(kind: Encounter.EnemyKind) -> void:
