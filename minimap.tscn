@@ -1,116 +1,60 @@
-[gd_scene load_steps=4 format=4 uid="uid://cv7jj0mhgl3ax"]
+[gd_scene load_steps=5 format=3 uid="uid://cv7jj0mhgl3ax"]
 
+[ext_resource type="Script" uid="uid://cph825emw8ckr" path="res://minimap.gd" id="1_cvo86"]
 [ext_resource type="Texture2D" uid="uid://bugsouqfelad6" path="res://Resources/Tiles/tileSet.png" id="1_yfyr0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvo86"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17f0l"]
 texture = ExtResource("1_yfyr0")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
 5:0/0 = 0
+5:3/0 = 0
+5:2/0 = 0
+5:1/0 = 0
+6:3/0 = 0
+7:1/0 = 0
+6:1/0 = 0
 6:0/0 = 0
 7:0/0 = 0
-20:0/0 = 0
-21:0/0 = 0
-22:0/0 = 0
-23:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
+4:0/0 = 0
 4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-20:1/0 = 0
-21:1/0 = 0
-22:1/0 = 0
-23:1/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-20:2/0 = 0
-21:2/0 = 0
-22:2/0 = 0
-23:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-20:3/0 = 0
-21:3/0 = 0
-22:3/0 = 0
-23:3/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-0:12/0 = 0
-1:12/0 = 0
-2:12/0 = 0
-3:12/0 = 0
-20:12/0 = 0
-21:12/0 = 0
-22:12/0 = 0
-23:12/0 = 0
-0:13/0 = 0
-1:13/0 = 0
-2:13/0 = 0
-3:13/0 = 0
-20:13/0 = 0
-21:13/0 = 0
-22:13/0 = 0
-23:13/0 = 0
-0:14/0 = 0
-1:14/0 = 0
-2:14/0 = 0
-3:14/0 = 0
-20:14/0 = 0
-21:14/0 = 0
-22:14/0 = 0
-23:14/0 = 0
-0:15/0 = 0
-1:15/0 = 0
-2:15/0 = 0
-3:15/0 = 0
-20:15/0 = 0
-21:15/0 = 0
-22:15/0 = 0
-23:15/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_0pgu0"]
+[sub_resource type="TileSet" id="TileSet_fu5ud"]
 tile_size = Vector2i(64, 64)
-terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
-terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/0 = SubResource("TileSetAtlasSource_cvo86")
+sources/0 = SubResource("TileSetAtlasSource_17f0l")
 
-[node name="Node2D" type="Node2D"]
+[node name="Minimap" type="Node2D"]
+rotation = -1.6261355
+scale = Vector2(0.6400622, 0.5996289)
+script = ExtResource("1_cvo86")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD//wAAAAABAAAAAAD+/wAAAAABAAAAAAD+/wEAAAABAAAAAAD+/wIAAAABAAAAAAD//wIAAAABAAAAAAAAAAEAAAAAAAAAAAACAAEAAAAAAAAAAAD//wEAAAABAAIAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAAAAAIAAAABAAAAAAABAAIAAAABAAAAAAACAAIAAAABAAAAAAADAP//AAAAAAMAAAADAAIAAAAFAAMAAAADAAEAAAAAAAAAAAADAAAAAAAAAAAAAAACAAMAAAABAAAAAAADAAMAAAABAAAAAAAEAAEAAAABAAAAAAAEAAAAAAABAAAAAAAEAP//AAABAAAAAAAEAP7/AAABAAAAAAADAP7/AAABAAAAAAACAP7/AAABAAAAAAACAP//AAABAAAAAAABAAEAAAAFAAAAAAAEAAIAAAABAAAAAAAEAAMAAAABAAAAAAA=")
-tile_set = SubResource("TileSet_0pgu0")
+[node name="BG" type="TileMapLayer" parent="."]
+position = Vector2(402.92877, 165.69202)
+rotation = 1.6226461
+scale = Vector2(1.6673859, 1.5626814)
+skew = 0.0072124004
+tile_set = SubResource("TileSet_fu5ud")
+
+[node name="Icons" type="TileMapLayer" parent="."]
+position = Vector2(402.92877, 165.69202)
+rotation = 1.6226461
+scale = Vector2(1.6673859, 1.5626814)
+skew = 0.0072124004
+tile_set = SubResource("TileSet_fu5ud")
