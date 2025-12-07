@@ -124,18 +124,18 @@ enemy_present = false
 
 [node name="Spell Info" parent="." instance=ExtResource("4_stbhr")]
 layout_mode = 0
-offset_left = 693.0
+offset_left = 545.0
 offset_top = 508.0
-offset_right = 878.0
+offset_right = 730.0
 offset_bottom = 598.0
 script = ExtResource("6_ek47n")
 
 [node name="Mana counter" parent="." instance=ExtResource("8_n0i6d")]
 layout_mode = 1
-offset_left = 890.0
-offset_top = 325.0
-offset_right = 1914.0
-offset_bottom = 1349.0
+offset_left = 870.0
+offset_top = 372.0
+offset_right = 1894.0
+offset_bottom = 1396.0
 step = 0.2
 script = ExtResource("9_8a7ww")
 
@@ -168,6 +168,7 @@ texture = SubResource("PlaceholderTexture2D_brg7e")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Mana counter"]
 
 [node name="Chance Display" parent="." instance=ExtResource("5_q0lyc")]
+visible = false
 layout_mode = 0
 offset_left = 890.0
 offset_top = 221.0

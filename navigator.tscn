@@ -1,10 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cf06keqo5si2c"]
+[gd_scene load_steps=18 format=3 uid="uid://cf06keqo5si2c"]
 
 [ext_resource type="Script" uid="uid://ccxhfvlqg47r8" path="res://navigator.gd" id="1_18orr"]
 [ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="3_j4p50"]
-[ext_resource type="Texture2D" uid="uid://b0hmu3aljnh05" path="res://Resources/arrow_active.png" id="3_s5fnc"]
 [ext_resource type="Texture2D" uid="uid://d3utydphl3qyy" path="res://Resources/decoration_1.png" id="3_xv1f3"]
-[ext_resource type="Texture2D" uid="uid://crjx2mi28yvew" path="res://Resources/arrow_inactive.png" id="4_3oqed"]
 [ext_resource type="Texture2D" uid="uid://cnsuspttsah53" path="res://Resources/decoration_2.png" id="4_j4p50"]
 [ext_resource type="Texture2D" uid="uid://bi4d7y0ebhxvc" path="res://Resources/decoration_3.png" id="5_6qkjq"]
 [ext_resource type="Texture2D" uid="uid://cqdwigh7imykx" path="res://Resources/Corridors/wall.png" id="5_17f0l"]
@@ -24,7 +22,6 @@
 script = ExtResource("1_18orr")
 
 [node name="Node2D" type="Node2D" parent="."]
-scale = Vector2(1.125, 0.635)
 
 [node name="Background" type="Sprite2D" parent="Node2D"]
 position = Vector2(512, 511.99997)
@@ -78,48 +75,40 @@ texture = ExtResource("15_s21u5")
 texture = ExtResource("15_s21u5")
 
 [node name="BackButton" type="TextureButton" parent="."]
-offset_left = 668.0
-offset_top = 495.99997
-offset_right = 924.0
-offset_bottom = 752.0
+offset_left = 980.27686
+offset_top = 980.32306
+offset_right = 2427.892
+offset_bottom = 1404.7673
 rotation = 3.1627393
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_s5fnc")
-texture_disabled = ExtResource("4_3oqed")
 
 [node name="RightButton" type="TextureButton" parent="."]
-offset_left = 885.0
-offset_top = 237.00002
-offset_right = 1141.0
-offset_bottom = 493.00006
+offset_left = 958.48816
+offset_top = 368.362
+offset_right = 1297.4502
+offset_bottom = 904.6319
 rotation = 1.5723478
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_s5fnc")
-texture_disabled = ExtResource("4_3oqed")
 
 [node name="FrontButton" type="TextureButton" parent="."]
-offset_left = 507.99997
-offset_top = 155.00002
-offset_right = 764.0
-offset_bottom = 411.0
+offset_left = 385.0
+offset_top = 18.000004
+offset_right = 799.0223
+offset_bottom = 1005.27734
 scale = Vector2(0.6400622, 0.5996289)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_s5fnc")
-texture_disabled = ExtResource("4_3oqed")
 
 [node name="LeftButton" type="TextureButton" parent="."]
-offset_left = 304.0
-offset_top = 411.0
-offset_right = 560.0
-offset_bottom = 667.0
+offset_left = 14.0
+offset_top = 664.0
+offset_right = 489.31458
+offset_bottom = 1303.9531
 rotation = -1.6261355
 scale = Vector2(0.6400622, 0.5996289)
 size_flags_horizontal = 4
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_s5fnc")
-texture_disabled = ExtResource("4_3oqed")
 
 [node name="Minimap" parent="." instance=ExtResource("10_j4p50")]
 position = Vector2(136, 113)

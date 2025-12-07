@@ -20,7 +20,7 @@ sprite_frames = ExtResource("3_kmn68")
 
 [node name="Charging Sprite" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(-54, -386)
+position = Vector2(-57, -445)
 sprite_frames = ExtResource("4_6mhm6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

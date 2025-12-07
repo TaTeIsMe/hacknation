@@ -11,18 +11,15 @@ var final_mana
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.value = mana_value
-	self.get_node("Mana Value").text = "%s%%" % mana_value
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(charging && mana_value > 0):
 		mana_value -= 10.0 * delta
 		self.value = lerp(27, 80, mana_value / 100)
-		self.get_node("Mana Value").text = str(snapped(mana_value, 0.01)) + "%"
 		final_mana = self.value
 	if(mana_value < 0):
 		mana_value = 0
-		self.get_node("Mana Value").text = "Zabrakło ci farta!"
 		charging = false
 		$AudioStreamPlayer.stream = preload("res://Resources/Sounds/mongolian.ogg")
 		$AudioStreamPlayer.play()

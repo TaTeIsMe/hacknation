@@ -18,19 +18,16 @@ func _ready() -> void:
 		EnemyKind.Glucior:
 			var sprite: Texture2D = preload("res://Resources/slime.png")
 			self.get_node("Encounter Sprite").texture = sprite
-			self.get_node("Encounter Label").text = "Glucior"
 			$AudioStreamPlayer.stream = preload("res://Resources/Sounds/wrrr.ogg")
 			$AudioStreamPlayer.play()
 		EnemyKind.Minotaur:
 			var sprite: Texture2D = preload("res://Resources/minotour.png")
 			self.get_node("Encounter Sprite").texture = sprite
-			self.get_node("Encounter Label").text = "Gigancka\nMućka"
 			$AudioStreamPlayer.stream = preload("res://Resources/Sounds/goblin2.ogg")
 			$AudioStreamPlayer.play()
 		EnemyKind.Wizard:
 			var sprite: Texture2D = preload("res://Resources/wizard.png")
 			self.get_node("Encounter Sprite").texture = sprite
-			self.get_node("Encounter Label").text = "Wiedźmak\nStrahenstein"
 			$AudioStreamPlayer.stream = preload("res://Resources/Sounds/mongolian.ogg")
 			$AudioStreamPlayer.play()
 

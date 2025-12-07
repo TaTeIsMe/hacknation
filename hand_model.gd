@@ -3,8 +3,9 @@ extends Node2D
 var cast_animation = preload("res://Styles/hand_animation_cast.tres")
 var spell_animation = preload("res://Styles/fire_animation.tres")
 var hand_state: SpriteFrames = preload("res://Styles/hand_animation_idle.tres")
-@export var min_position: Vector2 = Vector2(750, 480)
-@export var max_position: Vector2 = Vector2(800, 500) 
+@onready var min_position: Vector2 = self.position + Vector2(25,10)
+@onready var max_position: Vector2 = self.position - Vector2(25,10)
+@onready var is_charging_sequel = false
 
 signal is_charging(charge: bool)
 signal done_charging(charge: bool)
@@ -73,8 +74,13 @@ func _process(delta: float) -> void:
 	target_position.y = clamp(target_position.y, min_position.y, max_position.y)
 	
 	self.position = target_position
+	
+	if is_charging_sequel:
+		$"Hand Sprite".position.y += sin(Time.get_ticks_msec()/10) * 10
+		$"Charging Sprite".position.y += sin(Time.get_ticks_msec()/100) * 10
 
 func begin_charging():
+	is_charging_sequel = true
 	$"Charging Sprite".visible = true
 	$"Hand Sprite".animation = "charging"
 	$"Charging Sprite".play()
@@ -83,6 +89,7 @@ func begin_charging():
 
 func _on_node_2d_spell_cast(kind: SpellButton.SpellKind, power: float) -> void:
 	$"AudioStreamPlayer".stop()
+	is_charging_sequel = false
 	$"Charging Sprite".visible = false
 	self.cast_a_spell(kind)
 

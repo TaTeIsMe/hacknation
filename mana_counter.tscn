@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dcebgkqqeu7yx"]
+[gd_scene load_steps=19 format=3 uid="uid://dcebgkqqeu7yx"]
 
 [ext_resource type="Texture2D" uid="uid://clj0kx3kovat2" path="res://Resources/luck_border/luck_outer.png" id="1_rx2lg"]
 [ext_resource type="Texture2D" uid="uid://bx4hvijg5saiw" path="res://Resources/luck_animation/frame0000.png" id="18_p7mvn"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://cq0xtpcy4jlv" path="res://Resources/luck_animation/frame0007.png" id="31_itx5b"]
 [ext_resource type="Texture2D" uid="uid://cm2ydv2qbjtvd" path="res://Resources/luck_animation/frame0008.png" id="32_e0xdq"]
 [ext_resource type="Texture2D" uid="uid://baqi7cxjotwl8" path="res://Resources/luck_animation/frame0009.png" id="33_3wdpb"]
-[ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="34_alx4j"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_o37p6"]
 frames = 16
@@ -62,31 +61,3 @@ value = 70.0
 fill_mode = 3
 texture_under = ExtResource("1_rx2lg")
 texture_progress = SubResource("AnimatedTexture_o37p6")
-
-[node name="Mana label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 249.99997
-offset_top = 806.66656
-offset_right = 724.33325
-offset_bottom = 906.66644
-theme_override_colors/font_color = Color(0.56078434, 0.2627451, 0.93333334, 1)
-theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
-theme_override_constants/outline_size = 32
-theme_override_fonts/font = ExtResource("34_alx4j")
-theme_override_font_sizes/font_size = 64
-text = "Fart"
-horizontal_alignment = 1
-
-[node name="Mana Value" type="Label" parent="."]
-layout_mode = 0
-offset_left = -216.66666
-offset_top = 906.6665
-offset_right = 1223.3333
-offset_bottom = 1006.6664
-theme_override_colors/font_color = Color(0.49019608, 1, 0.49019608, 1)
-theme_override_colors/font_outline_color = Color(0.1764706, 0.15294118, 0.15294118, 1)
-theme_override_constants/outline_size = 32
-theme_override_fonts/font = ExtResource("34_alx4j")
-theme_override_font_sizes/font_size = 72
-text = "70%"
-horizontal_alignment = 1
