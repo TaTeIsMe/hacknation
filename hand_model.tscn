@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqfxs6qksygji"]
+
+[ext_resource type="SpriteFrames" uid="uid://smobb4iahk5b" path="res://Styles/hand_animation_idle.tres" id="1_b4xc6"]
+
+[node name="HandModel" type="Node2D"]
+
+[node name="Hand Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_b4xc6")
+frame_progress = 0.78903407
