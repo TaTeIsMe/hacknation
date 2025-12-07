@@ -11,7 +11,6 @@ const wizard_tile = Vector2i(5,0)
 const visited_tile = Vector2i(0,0)
 const unvisited_tile = Vector2i(1,0)
 
-var poop = false
 
 func update_scene():
 	$BackButton.disabled = self.position_stack.size() <= 1
@@ -24,10 +23,10 @@ func update_scene():
 	$FrontButton.visible = self.position_stack[-1].front != null
 	$LeftButton.visible = self.position_stack[-1].left != null
 	
-
 	var room = self.position_stack[-1]	
 	for i in range(4):
-		$Node2D/Decorations.get_children()[i].visible = room.decorations[i]
+		$Node2D/Decorations.get_children()[i].visible = room.decorations[i] != Room.Decoration.NO
+		$Node2D/Decorations.get_children()[i].flip_h = room.decorations[i] == Room.Decoration.FLIPPED
 	
 	if room.contents != null:
 		var texture = room.contents.sprite_texture()
@@ -59,27 +58,20 @@ func update_scene():
 			$Node2D/Background.texture = preload("res://Resources/Corridors/wall8.png")
 	$Minimap.update_minimap(self.head, self.position_stack[-1])
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.head.visited = true
 	self.update_scene()
 	pass # Replace with function body.
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 func _go(where: String) -> void:
 	if where == "back":
 		if self.position_stack.size() > 1:
 			self.position_stack.pop_back()
 	elif where == "right":
-		self.poop = !self.poop
 		self.position_stack.push_back(self.position_stack[-1].right)
 	elif where == "front":
 		self.position_stack.push_back(self.position_stack[-1].front)
 	elif where == "left":
-		self.poop = !self.poop
 		self.position_stack.push_back(self.position_stack[-1].left)
 	else:
 		printerr("gdzie ty idziesz?? ", where)
