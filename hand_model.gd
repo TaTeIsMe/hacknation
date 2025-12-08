@@ -17,12 +17,11 @@ func _ready() -> void:
 	self.get_node("Hand Sprite").animation = "default"
 	self.get_node("Hand Sprite").play()
 
-func cast_a_spell(spell_type: SpellButton.SpellKind):
+func animate(spell_type: SpellButton.SpellKind, _damage):
 	$"Hand Sprite".set_sprite_frames(cast_animation)
 	$"Hand Sprite".frame = 0
 	$"Hand Sprite".animation_looped.connect( _animation_done, ConnectFlags.CONNECT_ONE_SHOT)
 	$"Hand Sprite".play()
-	is_charging.emit(true)
 	match spell_type:
 		SpellButton.SpellKind.Fire:
 			spell_animation = preload("res://Styles/fire_animation.tres")
@@ -86,13 +85,3 @@ func begin_charging():
 	$"Charging Sprite".play()
 	$"AudioStreamPlayer".stream = preload("res://Resources/Sounds/noise.ogg")
 	$"AudioStreamPlayer".play()
-
-func _on_node_2d_spell_cast(kind: SpellButton.SpellKind, power: float) -> void:
-	$"AudioStreamPlayer".stop()
-	is_charging_sequel = false
-	$"Charging Sprite".visible = false
-	self.cast_a_spell(kind)
-
-
-func _on_node_2d_spell_down(kind: SpellButton.SpellKind) -> void:
-	begin_charging()

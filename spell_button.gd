@@ -31,10 +31,6 @@ func _ready() -> void:
 			self.text = "Ikosagrom"
 		SpellKind.Fireball:
 			self.text = "Kula Ognia"
-			
-	self.pressed.connect(_button_pressed)
-	self.button_down.connect(_button_down)
-	self.button_up.connect(_button_release)
 	
 	tween_stylebox = get_theme_stylebox('normal').duplicate()
 	
@@ -64,12 +60,4 @@ func _process(delta: float) -> void:
 			tween.tween_property(tween_stylebox, "bg_color", target.bg_color, 0.2)
 			tween.tween_property(tween_stylebox, "border_color", target.border_color, 0.2)
 
-func _button_pressed():
-	$"../../".spell_cast.emit(spell_kind)
-
-func _button_down():
-	$"../../".spell_down.emit(spell_kind)
-
-func _button_release():
-	$"../../".spell_release.emit()
 	

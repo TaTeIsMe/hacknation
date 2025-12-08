@@ -90,22 +90,23 @@ columns = 2
 [node name="Spell 1" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
 spell_kind = 1
+spell_accuracy = 80.0
 
 [node name="Spell 2" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
-spell_accuracy = 12.5
+spell_accuracy = 25.0
 spell_power = 25.0
 
 [node name="Spell 3" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
 spell_kind = 2
-spell_accuracy = 0.05
+spell_accuracy = 12.5
 spell_power = 100.0
 
 [node name="Spell 4" parent="Spell List" instance=ExtResource("2_2v524")]
 layout_mode = 2
 spell_kind = 3
-spell_accuracy = 0.001
+spell_accuracy = 0.1
 spell_power = 10000.0
 
 [node name="HP Bar" parent="." instance=ExtResource("3_2v524")]
@@ -179,9 +180,11 @@ script = ExtResource("7_2kudj")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 script = ExtResource("14_ggr81")
 
-[connection signal="spell_down" from="." to="Mana counter" method="_on_menu_control_spell_down"]
-[connection signal="spell_release" from="." to="Mana counter" method="_on_menu_control_spell_release"]
+[connection signal="button_down" from="Spell List/Spell 1" to="." method="_on_spell_1_button_down"]
 [connection signal="button_up" from="Spell List/Spell 1" to="AudioStreamPlayer" method="_on_spell1_button_up"]
+[connection signal="button_down" from="Spell List/Spell 2" to="." method="_on_spell_2_button_down"]
 [connection signal="button_up" from="Spell List/Spell 2" to="AudioStreamPlayer" method="_on_spell_2_button_up"]
+[connection signal="button_down" from="Spell List/Spell 3" to="." method="_on_spell_3_button_down"]
 [connection signal="button_up" from="Spell List/Spell 3" to="AudioStreamPlayer" method="_on_spell_3_button_up"]
+[connection signal="button_down" from="Spell List/Spell 4" to="." method="_on_spell_4_button_down"]
 [connection signal="button_up" from="Spell List/Spell 4" to="AudioStreamPlayer" method="_on_spell_4_button_up"]
