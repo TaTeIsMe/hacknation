@@ -30,6 +30,7 @@ func enemy_attack():
 		enemy_attacked.emit(encounter.damage)
 	
 func take_turn():
+	enemy_attack()
 	encounter.attack_animation()
 	$Timer.start()
 
@@ -38,5 +39,4 @@ func pass_turn():
 
 
 func _on_timer_timeout() -> void:
-	enemy_attack()
 	pass_turn()	

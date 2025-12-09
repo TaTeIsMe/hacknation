@@ -85,3 +85,9 @@ func begin_charging():
 	$"Charging Sprite".play()
 	$"AudioStreamPlayer".stream = preload("res://Resources/Sounds/noise.ogg")
 	$"AudioStreamPlayer".play()
+
+func damaged_animation():
+	var tween = create_tween()
+	for i in range(0,2):
+		tween.tween_property($"Hand Sprite", "modulate", Color(1,0.7,0.7,1),0.1).set_trans(Tween.TRANS_SINE)
+		tween.tween_property($"Hand Sprite", "modulate", Color.WHITE,0.1).set_trans(Tween.TRANS_SINE)

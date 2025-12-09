@@ -10,6 +10,7 @@ enum SpellKind {
 }
 
 signal luck_changed(new_luck:int)
+signal character_took_damage(damage:int)
 signal spell_cast(kind:SpellKind,damage:int)
 signal spell_hit(kind:SpellKind,damage:int)
 signal character_turn_passed()
@@ -45,5 +46,8 @@ func pass_turn():
 	character_turn_passed.emit()
 
 func take_damage(damage: int):
+	#delay for correct damage blink timing
+	await get_tree().create_timer(0.5).timeout
+	character_took_damage.emit()
 	luck -= damage
 	luck_changed.emit(luck)

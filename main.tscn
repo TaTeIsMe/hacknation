@@ -52,6 +52,7 @@ one_shot = true
 [connection signal="done_charging" from="HandModel" to="HUD" method="_on_hand_model_done_charging"]
 [connection signal="is_charging" from="HandModel" to="HUD" method="_on_hand_model_is_charging"]
 [connection signal="spell_button_clicked" from="HUD" to="Character" method="cast_spell"]
+[connection signal="character_took_damage" from="Character" to="HandModel" method="damaged_animation"]
 [connection signal="character_turn_passed" from="Character" to="EncounterContainer" method="take_turn"]
 [connection signal="luck_changed" from="Character" to="HUD" method="change_mana"]
 [connection signal="spell_cast" from="Character" to="HUD" method="disable_spells"]
