@@ -24,7 +24,7 @@ one_shot = true
 position = Vector2(776, 816)
 scale = Vector2(0.5, 0.5)
 
-[node name="Node2D" parent="." instance=ExtResource("2_h2yge")]
+[node name="HUD" parent="." instance=ExtResource("2_h2yge")]
 offset_left = -4.0
 offset_top = 440.0
 offset_right = -4.0
@@ -41,18 +41,20 @@ script = ExtResource("6_7mycd")
 [node name="Character" type="Node" parent="."]
 script = ExtResource("7_272bh")
 
+[node name="PassTurnTimer" type="Timer" parent="Character"]
+one_shot = true
+
 [connection signal="start_encounter" from="Navigator" to="EncounterContainer" method="_on_navigator_start_encounter"]
-[connection signal="start_encounter" from="Navigator" to="Node2D" method="_on_navigator_start_encounter"]
-[connection signal="boss_music" from="EncounterContainer" to="Background Music" method="_on_encounter_container_boss_music"]
 [connection signal="enemy_attacked" from="EncounterContainer" to="Character" method="take_damage"]
 [connection signal="enemy_died" from="EncounterContainer" to="Navigator" method="_on_encounter_container_enemy_died"]
-[connection signal="enemy_turn_passed" from="EncounterContainer" to="Node2D" method="enable_spells"]
+[connection signal="enemy_turn_passed" from="EncounterContainer" to="HUD" method="enable_spells"]
 [connection signal="timeout" from="EncounterContainer/Timer" to="EncounterContainer" method="_on_timer_timeout"]
-[connection signal="done_charging" from="HandModel" to="Node2D" method="_on_hand_model_done_charging"]
-[connection signal="is_charging" from="HandModel" to="Node2D" method="_on_hand_model_is_charging"]
-[connection signal="spell_button_clicked" from="Node2D" to="Character" method="_on_node_2d_spell_button_clicked"]
+[connection signal="done_charging" from="HandModel" to="HUD" method="_on_hand_model_done_charging"]
+[connection signal="is_charging" from="HandModel" to="HUD" method="_on_hand_model_is_charging"]
+[connection signal="spell_button_clicked" from="HUD" to="Character" method="cast_spell"]
 [connection signal="character_turn_passed" from="Character" to="EncounterContainer" method="take_turn"]
-[connection signal="character_turn_passed" from="Character" to="Node2D" method="disable_spells"]
-[connection signal="luck_changed" from="Character" to="Node2D" method="change_mana"]
-[connection signal="spell_cast" from="Character" to="EncounterContainer" method="attack_enemy"]
-[connection signal="spell_cast" from="Character" to="HandModel" method="animate"]
+[connection signal="luck_changed" from="Character" to="HUD" method="change_mana"]
+[connection signal="spell_cast" from="Character" to="HUD" method="disable_spells"]
+[connection signal="spell_hit" from="Character" to="EncounterContainer" method="attack_enemy"]
+[connection signal="spell_hit" from="Character" to="HandModel" method="animate"]
+[connection signal="timeout" from="Character/PassTurnTimer" to="Character" method="pass_turn"]

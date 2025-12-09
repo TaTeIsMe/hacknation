@@ -1,0 +1,100 @@
+[gd_scene load_steps=21 format=3 uid="uid://gqmmuc1asigr"]
+
+[ext_resource type="Script" uid="uid://bpr28ut6h286i" path="res://minotaur.gd" id="1_ddbia"]
+[ext_resource type="AudioStream" uid="uid://0h68jj4gifik" path="res://Resources/Sounds/goblin2.ogg" id="2_vycpw"]
+[ext_resource type="Texture2D" uid="uid://cw022r3ytmouc" path="res://Resources/minotaur/frame0000.png" id="3_i3bbs"]
+[ext_resource type="Texture2D" uid="uid://cqsl7tnhp4slf" path="res://Resources/minotaur/frame0001.png" id="4_p6tw6"]
+[ext_resource type="Texture2D" uid="uid://cpvtqpqdt3lue" path="res://Resources/minotaur/frame0002.png" id="5_tjk31"]
+[ext_resource type="Texture2D" uid="uid://c484ifh01vy8l" path="res://Resources/minotaur/frame0003.png" id="6_fa4pq"]
+[ext_resource type="Texture2D" uid="uid://bdk1g0402s7dj" path="res://Resources/minotaur/frame0004.png" id="7_xra7d"]
+[ext_resource type="Texture2D" uid="uid://dbhikdptxohli" path="res://Resources/minotaur/frame0005.png" id="8_omdmq"]
+[ext_resource type="Texture2D" uid="uid://b3w1e14xmpuw" path="res://Resources/minotaur/frame0006.png" id="9_kwag1"]
+[ext_resource type="Texture2D" uid="uid://d340vlej0njl4" path="res://Resources/minotaur/frame0007.png" id="10_ljwem"]
+[ext_resource type="Texture2D" uid="uid://c3vl755h1qvn4" path="res://Resources/minotaur/frame0008.png" id="11_hbc4o"]
+[ext_resource type="Texture2D" uid="uid://d1tvxmtia160j" path="res://Resources/minotaur/frame0009.png" id="12_ctmgn"]
+[ext_resource type="Texture2D" uid="uid://8lmfr4abu6rb" path="res://Resources/minotaur/frame0010.png" id="13_jj8wm"]
+[ext_resource type="Texture2D" uid="uid://cvx47d6vdp3yc" path="res://Resources/minotaur/frame0011.png" id="14_5orka"]
+[ext_resource type="Texture2D" uid="uid://ckc1u3nfiapio" path="res://Resources/minotaur/frame0012.png" id="15_s0nd6"]
+[ext_resource type="Texture2D" uid="uid://ig1d8rau7jvj" path="res://Resources/minotaur/frame0013.png" id="16_yhvfc"]
+[ext_resource type="Texture2D" uid="uid://bx6sugbe7avhs" path="res://Resources/minotaur/frame0014.png" id="17_y71wq"]
+[ext_resource type="Texture2D" uid="uid://1kueptmp0ddq" path="res://Resources/minotaur/frame0015.png" id="18_hy313"]
+[ext_resource type="Texture2D" uid="uid://cbv72btwlwvoc" path="res://Resources/minotaur/frame0016.png" id="19_wsx5v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2t1y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i3bbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_p6tw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tjk31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fa4pq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xra7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_omdmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kwag1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ljwem")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_hbc4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ctmgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jj8wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5orka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_s0nd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yhvfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y71wq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hy313")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wsx5v")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i3bbs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Minotaur" type="Node2D"]
+script = ExtResource("1_ddbia")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vycpw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d2t1y")
+animation = &"attack"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="default_animation"]

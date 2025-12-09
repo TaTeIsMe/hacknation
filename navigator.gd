@@ -17,20 +17,20 @@ var head = Room.new(
 					Room.new(
 						Room.new(),
 						null,
-						Room.new(null,null,null,Room.EncounterRoom.new(Encounter.EnemyKind.Wizard))
+						Room.new(null,null,null,Room.EncounterRoom.new(preload("res://Enemies/wizard.tscn").instantiate()))
 					),
 					null,
-					Room.EncounterRoom.new(Encounter.EnemyKind.Minotaur)
+					Room.EncounterRoom.new(preload("res://Enemies/minotaur.tscn").instantiate())
 				)
 			)
 			),
 			null,
-			Room.EncounterRoom.new(Encounter.EnemyKind.Glucior)
+			Room.EncounterRoom.new(preload("res://Enemies/slime.tscn").instantiate())
 		)
 	), 
 )
 
-signal start_encounter(kind: Encounter.EnemyKind)
+signal start_encounter(encounter: Encounter)
 
 var position_stack: Array = [[head, Vector2i.LEFT, Vector2i.ZERO]]
 
@@ -67,7 +67,7 @@ func update_scene():
 	$LeftButton.visible = self.get_current_room().left != null
 	
 	if room.contents is Room.EncounterRoom:
-		start_encounter.emit(room.contents.enemy_kind)
+		start_encounter.emit(room.contents.encounter)
 		$FrontButton.disabled = true
 		$LeftButton.disabled = true
 		$RightButton.disabled = true
@@ -149,9 +149,6 @@ func _go(where: String) -> void:
 		printerr("gdzie ty idziesz?? ", where)
 	self.get_current_room().visited = true
 	self.update_scene()
-		
-		
-
 
 func _on_encounter_container_enemy_died() -> void:
 	var room = self.get_current_room()

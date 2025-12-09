@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch3rps5834kgg"]
+
+[ext_resource type="Script" uid="uid://dijf1ecfqm6xw" path="res://wizard.gd" id="1_h4di2"]
+[ext_resource type="AudioStream" uid="uid://0h68jj4gifik" path="res://Resources/Sounds/goblin2.ogg" id="2_hplbq"]
+[ext_resource type="Texture2D" uid="uid://cbgy0bj5hymgr" path="res://Resources/wizard.png" id="3_r44bf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_phcyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r44bf")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_r44bf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wizard" type="Node2D"]
+script = ExtResource("1_h4di2")
+encounter_hp = 500.0
+damage = 10.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hplbq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_phcyf")
+animation = &"attack"

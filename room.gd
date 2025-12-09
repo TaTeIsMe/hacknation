@@ -15,7 +15,7 @@ class RoomLoot extends RoomContents:
 		return preload("res://image.png")
 		
 class EncounterRoom extends RoomContents:
-	var enemy_kind: Encounter.EnemyKind
+	var encounter: Encounter
 	
 	func tile_pos() -> Vector2i:
 		return Vector2i(5,1)
@@ -23,8 +23,8 @@ class EncounterRoom extends RoomContents:
 	func sprite_texture() -> Texture2D:
 		return null
 		
-	func _init(kind: Encounter.EnemyKind):
-		self.enemy_kind = kind
+	func _init(encounter: Encounter):
+		self.encounter = encounter
 
 var left: Room = null
 var right: Room = null

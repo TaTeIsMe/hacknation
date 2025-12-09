@@ -9,11 +9,10 @@ signal enemy_turn_passed()
 
 var encounter
 
-func _on_navigator_start_encounter(kind: Encounter.EnemyKind) -> void:
-	if(kind == Encounter.EnemyKind.Wizard):
+func _on_navigator_start_encounter(passed_encounter: Encounter) -> void:
+	if(passed_encounter is Wizard):
 		boss_music.emit(true)
-	encounter = ENCOUNTER.instantiate()
-	encounter.enemy_kind = kind
+	encounter = passed_encounter
 	encounter.enemy_died.connect(_on_enemy_ded)
 	self.add_child(encounter)
 	pass_turn()
@@ -31,6 +30,7 @@ func enemy_attack():
 		enemy_attacked.emit(encounter.damage)
 	
 func take_turn():
+	encounter.attack_animation()
 	$Timer.start()
 
 func pass_turn():
