@@ -32,4 +32,4 @@ func enable_spells():
 	$"Spell List".get_children().map(func(spell): spell.disabled = false)
 
 func change_mana(mana:int):
-	$"Mana counter".value = lerp(27, 80, mana / 100)
+	$"Mana counter".value = mana

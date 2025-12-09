@@ -11,7 +11,7 @@ enum EnemyKind {
 signal enemy_died
 @export var encounter_hp: float = 100.0
 @export var enemy_kind: EnemyKind = EnemyKind.Glucior
-@export var damage:float = 5
+@export var damage:float = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

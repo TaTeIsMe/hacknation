@@ -48,7 +48,6 @@ script = ExtResource("7_272bh")
 [connection signal="enemy_died" from="EncounterContainer" to="Navigator" method="_on_encounter_container_enemy_died"]
 [connection signal="enemy_turn_passed" from="EncounterContainer" to="Node2D" method="enable_spells"]
 [connection signal="timeout" from="EncounterContainer/Timer" to="EncounterContainer" method="_on_timer_timeout"]
-[connection signal="attack_complete" from="HandModel" to="EncounterContainer" method="attack_enemy"]
 [connection signal="done_charging" from="HandModel" to="Node2D" method="_on_hand_model_done_charging"]
 [connection signal="is_charging" from="HandModel" to="Node2D" method="_on_hand_model_is_charging"]
 [connection signal="spell_button_clicked" from="Node2D" to="Character" method="_on_node_2d_spell_button_clicked"]

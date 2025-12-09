@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://beuhhn4exqr55"]
+[gd_scene load_steps=23 format=3 uid="uid://beuhhn4exqr55"]
 
 [ext_resource type="Script" uid="uid://clssfp2ijep4u" path="res://gameplay_menu.gd" id="1_mvg78"]
 [ext_resource type="Texture2D" uid="uid://dh0ftseou3ojh" path="res://image.png" id="1_usc4k"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://b661s4fjq7xbc" path="res://chance_display.gd" id="7_2kudj"]
 [ext_resource type="PackedScene" uid="uid://dcebgkqqeu7yx" path="res://mana_counter.tscn" id="8_n0i6d"]
 [ext_resource type="Script" uid="uid://cvo652dt3mx00" path="res://mana_counter.gd" id="9_8a7ww"]
+[ext_resource type="Texture2D" uid="uid://clj0kx3kovat2" path="res://Resources/luck_border/luck_outer.png" id="11_obbw3"]
 [ext_resource type="Script" uid="uid://bd5lle1k3phxw" path="res://audio_stream_player.gd" id="14_ggr81"]
 [ext_resource type="Texture2D" uid="uid://bsnoq2fhm5rlh" path="res://Resources/evil_wizard.jpg" id="15_brg7e"]
 [ext_resource type="FontFile" uid="uid://j481t0jvc3at" path="res://Resources/Metamorphous-Regular.ttf" id="16_obbw3"]
@@ -133,11 +134,13 @@ script = ExtResource("6_ek47n")
 
 [node name="Mana counter" parent="." instance=ExtResource("8_n0i6d")]
 layout_mode = 1
-offset_left = 870.0
-offset_top = 372.0
-offset_right = 1894.0
-offset_bottom = 1396.0
+offset_left = 934.0
+offset_top = 465.00003
+offset_right = 1528.0
+offset_bottom = 1011.0
 step = 0.2
+texture_under = null
+texture_over = ExtResource("11_obbw3")
 script = ExtResource("9_8a7ww")
 
 [node name="EvilWizard" type="Sprite2D" parent="Mana counter"]
