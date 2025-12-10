@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 		get_node("Spell Info/Spell Info/Acc Value").text = str(spell.spell_accuracy) + "%")
 	self.get_node("Spell List").get_children().map(func(spell): if(spell.is_hovered()):
 		get_node("Spell Info/Spell Info/Power Value").text = str(spell.spell_power) + "%")
+	self.get_node("Spell List").get_children().map(func(spell): if(spell.is_hovered()):
+		get_node("Spell Info/Spell Info/Luck Acc").text = "+" + str(spell.spell_accuracy * Global.luck / 10) + "%")
 
 func _on_spell_1_button_down() -> void:
 	spell_button_clicked.emit(Character.SpellKind.Fire)

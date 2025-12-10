@@ -17,7 +17,7 @@ func _ready() -> void:
 	self.get_node("Hand Sprite").animation = "default"
 	self.get_node("Hand Sprite").play()
 
-func animate(spell_type: SpellButton.SpellKind, _damage):
+func animate(spell_type: Character.SpellKind, _damage):
 	$"Hand Sprite".set_sprite_frames(cast_animation)
 	$"Hand Sprite".frame = 0
 	$"Hand Sprite".animation_looped.connect( _animation_done, ConnectFlags.CONNECT_ONE_SHOT)

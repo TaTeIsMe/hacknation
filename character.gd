@@ -1,7 +1,7 @@
 extends Node
 class_name Character
 
-@onready var luck = 30
+
 enum SpellKind {
 	Fire,
 	Ice,
@@ -21,22 +21,22 @@ func cast_spell(kind : Character.SpellKind):
 	var rng_val = rng.randf_range(0,100) 
 	match kind:
 		SpellKind.Fire:
-			if rng_val - luck > 100.0/4.0: 
+			if rng_val - Global.luck > 100.0/4.0: 
 				$PassTurnTimer.start()
 			else:
 				spell_hit.emit(kind, 20)
 		SpellKind.Ice:
-			if rng_val - luck > 100.0/8.0: 
+			if rng_val - Global.luck > 100.0/8.0: 
 				$PassTurnTimer.start()
 			else:
 				spell_hit.emit(kind, 100)
 		SpellKind.Spark:
-			if rng_val - luck > 100.0/20.0: 
+			if rng_val - Global.luck > 100.0/20.0: 
 				$PassTurnTimer.start()
 			else:
 				spell_hit.emit(kind, 200)
 		SpellKind.Fireball:
-			if rng_val - luck > 100.0/1000.0: 
+			if rng_val - Global.luck > 100.0/1000.0: 
 				$PassTurnTimer.start()
 			else:
 				spell_hit.emit(kind, 2000)
@@ -49,5 +49,6 @@ func take_damage(damage: int):
 	#delay for correct damage blink timing
 	await get_tree().create_timer(0.5).timeout
 	character_took_damage.emit()
-	luck -= damage
-	luck_changed.emit(luck)
+	Global.luck -= damage
+	#now could be replaced by global on the other side but whatever
+	luck_changed.emit(Global.luck)

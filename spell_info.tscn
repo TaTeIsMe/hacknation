@@ -23,7 +23,7 @@ offset_bottom = 104.0
 theme = SubResource("Theme_cy1f1")
 theme_override_constants/h_separation = 24
 theme_override_constants/v_separation = 24
-columns = 2
+columns = 3
 
 [node name="Acc" type="Label" parent="Spell Info"]
 layout_mode = 2
@@ -41,6 +41,13 @@ theme_override_constants/outline_size = 16
 theme_override_styles/normal = ExtResource("3_keafv")
 text = "NaN"
 horizontal_alignment = 2
+
+[node name="Luck Acc" type="Label" parent="Spell Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.41568628, 0, 1)
+theme_override_colors/font_outline_color = Color(0.455293, 0.9116014, 0.444514, 1)
+theme_override_constants/outline_size = 16
+text = "Nan"
 
 [node name="Power" type="Label" parent="Spell Info"]
 layout_mode = 2
