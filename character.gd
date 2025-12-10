@@ -48,3 +48,5 @@ func take_damage(damage: int):
 	await get_tree().create_timer(0.5).timeout
 	character_took_damage.emit()
 	Global.luck -= damage
+	if Global.luck < 0:
+		$"../Lose".visible = true
