@@ -2,7 +2,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	Global.luck_changed.connect(change_mana)
 
 signal spell_button_clicked(kind: Character.SpellKind)
 
@@ -34,4 +34,4 @@ func enable_spells():
 	$"Spell List".get_children().map(func(spell): spell.disabled = false)
 
 func change_mana(mana:int):
-	$"Mana counter".value = mana
+	$"Mana counter".value = Global.luck

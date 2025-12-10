@@ -18,6 +18,9 @@ func _on_navigator_start_encounter(passed_encounter: Encounter) -> void:
 	pass_turn()
 
 func _on_enemy_ded()-> void:
+	if encounter is Wizard:
+		print(encounter)
+		$"../EvilWizard".visible = true
 	remove_child(encounter)
 	enemy_died.emit()
 	
@@ -31,8 +34,10 @@ func enemy_attack():
 	
 func take_turn():
 	enemy_attack()
-	encounter.attack_animation()
-	$Timer.start()
+	if encounter:
+		encounter.attack_animation()
+		$Timer.start()
+	else: pass_turn()
 
 func pass_turn():
 	enemy_turn_passed.emit()

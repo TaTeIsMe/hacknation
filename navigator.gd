@@ -5,7 +5,7 @@ var head = Room.new(
 		null, 
 		null, 
 	Room.new(
-		null,
+		Room.new(null,null,null, Room.RoomLoot.new()),
 		null,
 		Room.new(
 			null,
@@ -22,7 +22,7 @@ var head = Room.new(
 					null,
 					Room.EncounterRoom.new(preload("res://Enemies/minotaur.tscn").instantiate())
 				)
-			)
+			), Room.RoomLoot.new()
 			),
 			null,
 			Room.EncounterRoom.new(preload("res://Enemies/slime.tscn").instantiate())
@@ -72,7 +72,6 @@ func update_scene():
 		$LeftButton.disabled = true
 		$RightButton.disabled = true
 		$BackButton.disabled = true
-	
 
 	for i in range($Node2D/Decorations.get_children().size()):
 		$Node2D/Decorations.get_children()[i].visible = room.decorations[i] != Room.Decoration.NO
@@ -81,6 +80,7 @@ func update_scene():
 	if room.contents != null:
 		var texture = room.contents.sprite_texture()
 		if texture != null:
+			$Node2D/ChestPickupTimer.start()
 			$Node2D/Wygrana.texture = texture
 			$Node2D/Wygrana.visible = true
 		else:
@@ -107,6 +107,13 @@ func update_scene():
 		[true, true, true]:
 			$Node2D/Background.texture = preload("res://Resources/Corridors/wall8.png")
 	$Minimap.update_minimap(self.head, room, -self.get_current_position())
+
+func pickup_chest():
+	print("yoink")
+	var room = self.get_current_room()
+	room.contents = null
+	Global.luck += 20
+	$Node2D/Wygrana.visible = false
 
 func _ready() -> void:
 	self.head.visited = true

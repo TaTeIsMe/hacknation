@@ -1,7 +1,6 @@
 extends Node
 class_name Character
 
-
 enum SpellKind {
 	Fire,
 	Ice,
@@ -9,7 +8,6 @@ enum SpellKind {
 	Fireball
 }
 
-signal luck_changed(new_luck:int)
 signal character_took_damage(damage:int)
 signal spell_cast(kind:SpellKind,damage:int)
 signal spell_hit(kind:SpellKind,damage:int)
@@ -50,5 +48,3 @@ func take_damage(damage: int):
 	await get_tree().create_timer(0.5).timeout
 	character_took_damage.emit()
 	Global.luck -= damage
-	#now could be replaced by global on the other side but whatever
-	luck_changed.emit(Global.luck)

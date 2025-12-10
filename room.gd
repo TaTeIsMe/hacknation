@@ -12,7 +12,7 @@ class RoomLoot extends RoomContents:
 		return Vector2i(5,1)
 		
 	func sprite_texture() -> Texture2D:
-		return preload("res://image.png")
+		return preload("res://Resources/chest_open.png")
 		
 class EncounterRoom extends RoomContents:
 	var encounter: Encounter

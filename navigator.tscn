@@ -28,7 +28,7 @@ position = Vector2(512, 511.99997)
 texture = ExtResource("5_17f0l")
 
 [node name="Wygrana" type="Sprite2D" parent="Node2D"]
-position = Vector2(517.3334, 560.6299)
+position = Vector2(610, 552)
 scale = Vector2(0.21130453, 0.3673383)
 texture = ExtResource("3_j4p50")
 
@@ -74,6 +74,10 @@ texture = ExtResource("15_s21u5")
 [node name="Decoration5" type="Sprite2D" parent="Node2D/Decorations"]
 texture = ExtResource("15_s21u5")
 
+[node name="ChestPickupTimer" type="Timer" parent="Node2D"]
+wait_time = 0.657
+one_shot = true
+
 [node name="BackButton" type="TextureButton" parent="."]
 offset_left = 980.27686
 offset_top = 980.32306
@@ -116,6 +120,7 @@ position = Vector2(136, 113)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_pk57x")
 
+[connection signal="timeout" from="Node2D/ChestPickupTimer" to="." method="pickup_chest"]
 [connection signal="pressed" from="BackButton" to="." method="_go" binds= ["back"]]
 [connection signal="pressed" from="RightButton" to="." method="_go" binds= ["right"]]
 [connection signal="pressed" from="FrontButton" to="." method="_go" binds= ["front"]]
