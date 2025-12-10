@@ -21,6 +21,7 @@ func _on_enemy_ded()-> void:
 	if encounter is Wizard:
 		print(encounter)
 		$"../EvilWizard".visible = true
+		$"../winlabel".visible = true
 	remove_child(encounter)
 	enemy_died.emit()
 	
